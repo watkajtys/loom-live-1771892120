@@ -1,90 +1,938 @@
-diff --git a/src/components/lofi/Navigation.tsx b/src/components/lofi/Navigation.tsx
-index fa353f6..4058680 100644
---- a/src/components/lofi/Navigation.tsx
-+++ b/src/components/lofi/Navigation.tsx
-@@ -1,16 +1,9 @@
- import React from 'react';
--import { Link } from 'react-router-dom';
- import { useLofiStore } from '../../store/lofiStore';
+diff --git a/index.html b/index.html
+index 0f1867f..4252939 100644
+--- a/index.html
++++ b/index.html
+@@ -8,6 +8,7 @@
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Outfit:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
++    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+   </head>
+   <body>
+diff --git a/package-lock.json b/package-lock.json
+index 778241e..930690d 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -20,6 +20,7 @@
+       },
+       "devDependencies": {
+         "@eslint/js": "^9.39.1",
++        "@playwright/test": "^1.58.2",
+         "@types/node": "^24.10.1",
+         "@types/react": "^19.2.7",
+         "@types/react-dom": "^19.2.3",
+@@ -79,7 +80,6 @@
+       "integrity": "sha512-CGOfOJqWjg2qW/Mb6zNsDm+u5vFQ8DxXfbM09z69p5Z6+mE1ikP2jUXw+j42Pf1XTYED2Rni5f95npYeuwMDQA==",
+       "dev": true,
+       "license": "MIT",
+-      "peer": true,
+       "dependencies": {
+         "@babel/code-frame": "^7.29.0",
+         "@babel/generator": "^7.29.0",
+@@ -348,7 +348,6 @@
+       "resolved": "https://registry.npmjs.org/@dnd-kit/core/-/core-6.3.1.tgz",
+       "integrity": "sha512-xkGBRQQab4RLwgXxoqETICr6S5JlogafbhNsidmrkVv2YRs5MLwpjoF2qpiGjQt8S9AoxtIV603s0GIUpY5eYQ==",
+       "license": "MIT",
+-      "peer": true,
+       "dependencies": {
+         "@dnd-kit/accessibility": "^3.1.1",
+         "@dnd-kit/utilities": "^3.2.2",
+@@ -720,6 +719,22 @@
+         "url": "https://github.com/sponsors/Boshen"
+       }
+     },
++    "node_modules/@playwright/test": {
++      "version": "1.58.2",
++      "resolved": "https://registry.npmjs.org/@playwright/test/-/test-1.58.2.tgz",
++      "integrity": "sha512-akea+6bHYBBfA9uQqSYmlJXn61cTa+jbO87xVLCWbTqbWadRVmhxlXATaOjOgcBaWU4ePo0wB41KMFv3o35IXA==",
++      "dev": true,
++      "license": "Apache-2.0",
++      "dependencies": {
++        "playwright": "1.58.2"
++      },
++      "bin": {
++        "playwright": "cli.js"
++      },
++      "engines": {
++        "node": ">=18"
++      }
++    },
+     "node_modules/@rolldown/binding-android-arm64": {
+       "version": "1.0.0-rc.5",
+       "resolved": "https://registry.npmjs.org/@rolldown/binding-android-arm64/-/binding-android-arm64-1.0.0-rc.5.tgz",
+@@ -1279,7 +1294,6 @@
+       "integrity": "sha512-oH72nZRfDv9lADUBSo104Aq7gPHpQZc4BTx38r9xf9pg5LfP6EzSyH2n7qFmmxRQXh7YlUXODcYsg6PuTDSxGg==",
+       "dev": true,
+       "license": "MIT",
+-      "peer": true,
+       "dependencies": {
+         "undici-types": "~7.16.0"
+       }
+@@ -1290,7 +1304,6 @@
+       "integrity": "sha512-ilcTH/UniCkMdtexkoCN0bI7pMcJDvmQFPvuPvmEaYA/NSfFTAgdUSLAoVjaRJm7+6PvcM+q1zYOwS4wTYMF9w==",
+       "devOptional": true,
+       "license": "MIT",
+-      "peer": true,
+       "dependencies": {
+         "csstype": "^3.2.2"
+       }
+@@ -1350,7 +1363,6 @@
+       "integrity": "sha512-IgSWvLobTDOjnaxAfDTIHaECbkNlAlKv2j5SjpB2v7QHKv1FIfjwMy8FsDbVfDX/KjmCmYICcw7uGaXLhtsLNg==",
+       "dev": true,
+       "license": "MIT",
+-      "peer": true,
+       "dependencies": {
+         "@typescript-eslint/scope-manager": "8.56.0",
+         "@typescript-eslint/types": "8.56.0",
+@@ -1615,7 +1627,6 @@
+       "integrity": "sha512-UVJyE9MttOsBQIDKw1skb9nAwQuR5wuGD3+82K6JgJlm/Y+KI92oNsMNGZCYdDsVtRHSak0pcV5Dno5+4jh9sw==",
+       "dev": true,
+       "license": "MIT",
+-      "peer": true,
+       "bin": {
+         "acorn": "bin/acorn"
+       },
+@@ -1761,7 +1772,6 @@
+         }
+       ],
+       "license": "MIT",
+-      "peer": true,
+       "dependencies": {
+         "baseline-browser-mapping": "^2.9.0",
+         "caniuse-lite": "^1.0.30001759",
+@@ -1976,7 +1986,6 @@
+       "integrity": "sha512-LEyamqS7W5HB3ujJyvi0HQK/dtVINZvd5mAAp9eT5S/ujByGjiZLCzPcHVzuXbpJDJF/cxwHlfceVUDZ2lnSTw==",
+       "dev": true,
+       "license": "MIT",
+-      "peer": true,
+       "dependencies": {
+         "@eslint-community/eslint-utils": "^4.8.0",
+         "@eslint-community/regexpp": "^4.12.1",
+@@ -2948,7 +2957,6 @@
+       "integrity": "sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==",
+       "dev": true,
+       "license": "MIT",
+-      "peer": true,
+       "engines": {
+         "node": ">=12"
+       },
+@@ -2956,6 +2964,53 @@
+         "url": "https://github.com/sponsors/jonschlinkert"
+       }
+     },
++    "node_modules/playwright": {
++      "version": "1.58.2",
++      "resolved": "https://registry.npmjs.org/playwright/-/playwright-1.58.2.tgz",
++      "integrity": "sha512-vA30H8Nvkq/cPBnNw4Q8TWz1EJyqgpuinBcHET0YVJVFldr8JDNiU9LaWAE1KqSkRYazuaBhTpB5ZzShOezQ6A==",
++      "dev": true,
++      "license": "Apache-2.0",
++      "dependencies": {
++        "playwright-core": "1.58.2"
++      },
++      "bin": {
++        "playwright": "cli.js"
++      },
++      "engines": {
++        "node": ">=18"
++      },
++      "optionalDependencies": {
++        "fsevents": "2.3.2"
++      }
++    },
++    "node_modules/playwright-core": {
++      "version": "1.58.2",
++      "resolved": "https://registry.npmjs.org/playwright-core/-/playwright-core-1.58.2.tgz",
++      "integrity": "sha512-yZkEtftgwS8CsfYo7nm0KE8jsvm6i/PTgVtB8DL726wNf6H2IMsDuxCpJj59KDaxCtSnrWan2AeDqM7JBaultg==",
++      "dev": true,
++      "license": "Apache-2.0",
++      "bin": {
++        "playwright-core": "cli.js"
++      },
++      "engines": {
++        "node": ">=18"
++      }
++    },
++    "node_modules/playwright/node_modules/fsevents": {
++      "version": "2.3.2",
++      "resolved": "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz",
++      "integrity": "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==",
++      "dev": true,
++      "hasInstallScript": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "darwin"
++      ],
++      "engines": {
++        "node": "^8.16.0 || ^10.6.0 || >=11.0.0"
++      }
++    },
+     "node_modules/postcss": {
+       "version": "8.5.6",
+       "resolved": "https://registry.npmjs.org/postcss/-/postcss-8.5.6.tgz",
+@@ -2975,7 +3030,6 @@
+         }
+       ],
+       "license": "MIT",
+-      "peer": true,
+       "dependencies": {
+         "nanoid": "^3.3.11",
+         "picocolors": "^1.1.1",
+@@ -3017,7 +3071,6 @@
+       "resolved": "https://registry.npmjs.org/react/-/react-19.2.4.tgz",
+       "integrity": "sha512-9nfp2hYpCwOjAN+8TZFGhtWEwgvWHXqESH8qT89AT/lWklpLON22Lc8pEtnpsZz7VmawabSU0gCjnj8aC0euHQ==",
+       "license": "MIT",
+-      "peer": true,
+       "engines": {
+         "node": ">=0.10.0"
+       }
+@@ -3027,7 +3080,6 @@
+       "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-19.2.4.tgz",
+       "integrity": "sha512-AXJdLo8kgMbimY95O2aKQqsz2iWi9jMgKJhRBAxECE4IFxfcazB2LmzloIoibJI3C12IlY20+KFaLv+71bUJeQ==",
+       "license": "MIT",
+-      "peer": true,
+       "dependencies": {
+         "scheduler": "^0.27.0"
+       },
+@@ -3286,7 +3338,6 @@
+       "integrity": "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==",
+       "dev": true,
+       "license": "Apache-2.0",
+-      "peer": true,
+       "bin": {
+         "tsc": "bin/tsc",
+         "tsserver": "bin/tsserver"
+@@ -3373,7 +3424,6 @@
+       "integrity": "sha512-RHX7IvsJlEfjyA1rS7MY0UsmF91etdLAamslHR5lfuO3W/BXRdXm2tRE64ztpSPZbKqB4wAAZ0AwtF6QzfKZLA==",
+       "dev": true,
+       "license": "MIT",
+-      "peer": true,
+       "dependencies": {
+         "@oxc-project/runtime": "0.114.0",
+         "lightningcss": "^1.31.1",
+@@ -3499,7 +3549,6 @@
+       "integrity": "sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==",
+       "dev": true,
+       "license": "MIT",
+-      "peer": true,
+       "funding": {
+         "url": "https://github.com/sponsors/colinhacks"
+       }
+diff --git a/package.json b/package.json
+index 9ad34b3..46fc92c 100644
+--- a/package.json
++++ b/package.json
+@@ -22,6 +22,7 @@
+   },
+   "devDependencies": {
+     "@eslint/js": "^9.39.1",
++    "@playwright/test": "^1.58.2",
+     "@types/node": "^24.10.1",
+     "@types/react": "^19.2.7",
+     "@types/react-dom": "^19.2.3",
+diff --git a/src/App.tsx b/src/App.tsx
+index c101a42..ecef91a 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -1,6 +1,7 @@
+ import { BrowserRouter, Routes, Route } from 'react-router-dom';
+ import LegacyApp from './LegacyApp';
+ import LofiLoom from './components/lofi/LofiLoom';
++import PortfolioConstructor from './components/portfolio/PortfolioConstructor';
  
- const Navigation: React.FC = () => {
--  const timer = useLofiStore((state) => state.timer);
-+  const initialTimer = useLofiStore((state) => state.initialTimer);
-   
--  const formatTime = (seconds: number) => {
--    const m = Math.floor(seconds / 60);
--    const s = seconds % 60;
--    return `${m}:${s.toString().padStart(2, '0')}`;
--  };
--
+ function App() {
    return (
-     <nav className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-8 bg-gradient-to-b from-black/50 to-transparent pointer-events-none">
-       <div className="flex items-center gap-3 pointer-events-auto">
-@@ -18,12 +11,9 @@ const Navigation: React.FC = () => {
-         <span className="text-amber-50 font-bold text-lg tracking-wide uppercase drop-shadow-md font-display">LofiLoom</span>
-       </div>
-       <div className="flex items-center gap-6 pointer-events-auto">
--        <Link to="/legacy" className="text-amber-100/60 hover:text-amber-50 text-sm font-medium transition-colors font-display">
--            Legacy App
--        </Link>
-         <div className="hidden md:flex items-center gap-2 text-amber-100/80 text-xs font-medium bg-amber-950/30 px-4 py-2 rounded-full border border-amber-500/20 backdrop-blur-md">
-           <span className="material-symbols-outlined text-primary text-base">timer</span>
--          <span className="font-numeric tabular-nums">{formatTime(timer)}</span>
-+          <span className="font-display">Session: <span className="font-numeric">{Math.floor(initialTimer / 60)}m</span></span>
-         </div>
-         <div className="flex items-center gap-3 cursor-pointer group">
-           <div className="size-8 rounded-full border border-amber-200/30 overflow-hidden shadow-[0_0_10px_rgba(255,160,0,0.3)]">
-diff --git a/src/index.css b/src/index.css
-index 9eec452..8ce6e47 100644
---- a/src/index.css
-+++ b/src/index.css
-@@ -9,7 +9,8 @@
-   --color-panel-bg: #0a0a12;
-   --color-panel-border: #1a1a2e;
- 
--  --font-display: "Rajdhani", sans-serif;
-+  --font-display: "DM Sans", sans-serif;
-+  --font-numeric: "Outfit", sans-serif;
-   --font-mono: "Space Mono", monospace;
- 
-   --background-image-cyber-grid: linear-gradient(rgba(0, 240, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 240, 255, 0.1) 1px, transparent 1px);
-diff --git a/src/store/lofiStore.ts b/src/store/lofiStore.ts
-index ef16569..0a3e2bb 100644
---- a/src/store/lofiStore.ts
-+++ b/src/store/lofiStore.ts
-@@ -57,7 +57,7 @@ export const useLofiStore = create<LofiState>((set) => ({
-       muted: false, 
-       src: 'https://actions.google.com/sounds/v1/ambiences/coffee_shop.ogg',
-       icon: 'storefront', 
--      accentColor: 'accent-orange-400' 
-+      accentColor: 'accent-orange-300' 
-     },
-     { 
-       id: 'fire', 
-@@ -66,7 +66,7 @@ export const useLofiStore = create<LofiState>((set) => ({
-       muted: false, 
-       src: 'https://actions.google.com/sounds/v1/ambiences/fireplace.ogg',
-       icon: 'local_fire_department', 
--      accentColor: 'accent-red-400' 
-+      accentColor: 'accent-amber-500' 
-     },
-     { 
-       id: 'vinyl', 
-@@ -75,7 +75,7 @@ export const useLofiStore = create<LofiState>((set) => ({
-       muted: false, 
-       src: 'https://actions.google.com/sounds/v1/water/waves_crashing_on_rocks_1.ogg',
-       icon: 'album', 
--      accentColor: 'accent-yellow-300' 
-+      accentColor: 'accent-amber-400' 
-     },
-     { 
-       id: 'nature', 
-@@ -84,7 +84,7 @@ export const useLofiStore = create<LofiState>((set) => ({
-       muted: false, 
-       src: 'https://actions.google.com/sounds/v1/animals/birds_forest.ogg',
-       icon: 'forest', 
--      accentColor: 'accent-lime-400' 
-+      accentColor: 'accent-orange-300' 
-     },
-   ],
- 
+@@ -8,6 +9,7 @@ function App() {
+       <Routes>
+         <Route path="/" element={<LofiLoom />} />
+         <Route path="/legacy" element={<LegacyApp />} />
++        <Route path="/portfolio-constructor" element={<PortfolioConstructor />} />
+       </Routes>
+     </BrowserRouter>
+   );
+diff --git a/src/components/portfolio/AllocationBar.tsx b/src/components/portfolio/AllocationBar.tsx
+new file mode 100644
+index 0000000..c6477b6
+--- /dev/null
++++ b/src/components/portfolio/AllocationBar.tsx
+@@ -0,0 +1,116 @@
++import React, { useState, useRef, useEffect } from 'react';
++import { usePortfolioStore } from '../../store/portfolioStore';
++
++const AllocationBar: React.FC = () => {
++    const { assets, setAssets } = usePortfolioStore();
++    const containerRef = useRef<HTMLDivElement>(null);
++    const [draggingIndex, setDraggingIndex] = useState<number | null>(null);
++    const startXRef = useRef<number>(0);
++    const initialAllocationsRef = useRef<number[]>([]);
++
++    useEffect(() => {
++        const handleMouseMove = (e: MouseEvent) => {
++            if (draggingIndex === null || !containerRef.current) return;
++
++            const containerWidth = containerRef.current.offsetWidth;
++            const dx = e.clientX - startXRef.current;
++            const deltaPercentage = (dx / containerWidth) * 100;
++
++            const newAssets = [...assets];
++            const leftIndex = draggingIndex;
++            const rightIndex = draggingIndex + 1;
++
++            const initialLeft = initialAllocationsRef.current[leftIndex];
++            const initialRight = initialAllocationsRef.current[rightIndex];
++
++            // Calculate potential new values
++            let newLeft = initialLeft + deltaPercentage;
++            let newRight = initialRight - deltaPercentage;
++
++            // Clamp values
++            if (newLeft < 0) {
++                newLeft = 0;
++                newRight = initialLeft + initialRight;
++            } else if (newRight < 0) {
++                newRight = 0;
++                newLeft = initialLeft + initialRight;
++            }
++
++            // Update only if changed significantly
++            if (Math.abs(newAssets[leftIndex].allocation - newLeft) > 0.01) {
++                newAssets[leftIndex] = { ...newAssets[leftIndex], allocation: newLeft };
++                newAssets[rightIndex] = { ...newAssets[rightIndex], allocation: newRight };
++                setAssets(newAssets);
++            }
++        };
++
++        const handleMouseUp = () => {
++            setDraggingIndex(null);
++            document.body.style.cursor = 'default';
++        };
++
++        if (draggingIndex !== null) {
++            window.addEventListener('mousemove', handleMouseMove);
++            window.addEventListener('mouseup', handleMouseUp);
++            document.body.style.cursor = 'col-resize';
++        }
++
++        return () => {
++            window.removeEventListener('mousemove', handleMouseMove);
++            window.removeEventListener('mouseup', handleMouseUp);
++        };
++    }, [draggingIndex, assets, setAssets]);
++
++    const handleMouseDown = (index: number, e: React.MouseEvent) => {
++        e.preventDefault();
++        setDraggingIndex(index);
++        startXRef.current = e.clientX;
++        initialAllocationsRef.current = assets.map(a => a.allocation);
++    };
++
++    return (
++        <div className="w-full px-4 mb-12 select-none">
++            <div className="relative w-full h-36 rounded-[2px] overflow-hidden flex shadow-2xl ring-4 ring-white border border-slate-200" ref={containerRef}>
++                {assets.map((asset, index) => (
++                    <React.Fragment key={asset.id}>
++                        <div 
++                            className={`h-full relative group transition-colors duration-300 ease-out flex flex-col items-center justify-center hover:brightness-110 cursor-grab active:cursor-grabbing`}
++                            style={{ 
++                                width: `${asset.allocation}%`,
++                                backgroundColor: asset.colorHex
++                            }}
++                        >
++                            <div className="text-white font-serif font-bold text-4xl lg:text-5xl tracking-tight">
++                                {Math.round(asset.allocation)}<span className="text-xl lg:text-2xl align-top opacity-60 font-sans">%</span>
++                            </div>
++                            <div className="text-white/70 font-sans font-medium text-[10px] lg:text-xs uppercase tracking-widest mt-2 border-t border-white/20 pt-1 px-2 text-center whitespace-nowrap overflow-hidden text-ellipsis max-w-full">
++                                {asset.name}
++                            </div>
++                        </div>
++                        
++                        {index < assets.length - 1 && (
++                            <div 
++                                className="w-1 h-full bg-white cursor-col-resize z-20 flex flex-col justify-center items-center group/handle relative hover:w-1.5 transition-all"
++                                onMouseDown={(e) => handleMouseDown(index, e)}
++                            >
++                                <div className="w-6 h-10 bg-white border border-slate-200 shadow-md rounded-full flex items-center justify-center group-hover/handle:scale-110 transition-transform absolute z-30 pointer-events-none">
++                                    <span className="material-symbols-outlined text-slate-400 text-[14px]">drag_handle</span>
++                                </div>
++                            </div>
++                        )}
++                    </React.Fragment>
++                ))}
++            </div>
++             <div className="flex justify-between mt-4 px-1">
++                <div className="flex items-center gap-2 text-slate-500 text-xs font-mono font-medium">
++                    <span className="w-2 h-2 rounded-full bg-slate-400 ring-2 ring-slate-100"></span> CURRENT ALLOCATION
++                </div>
++                <div className="flex items-center gap-2 text-slate-500 text-xs font-mono font-medium">
++                    TARGET: BALANCED GROWTH <span className="material-symbols-outlined text-sm">flag</span>
++                </div>
++            </div>
++        </div>
++    );
++};
++
++export default AllocationBar;
+diff --git a/src/components/portfolio/CorrelationMatrix.tsx b/src/components/portfolio/CorrelationMatrix.tsx
+new file mode 100644
+index 0000000..bf7f035
+--- /dev/null
++++ b/src/components/portfolio/CorrelationMatrix.tsx
+@@ -0,0 +1,72 @@
++import React from 'react';
++
++const CorrelationMatrix: React.FC = () => {
++    return (
++        <div className="w-full flex-1 min-h-0 relative px-4">
++            <div className="bg-white w-full h-full rounded-t-lg border border-slate-200 border-b-0 p-8 flex flex-col shadow-[0_-4px_20px_-5px_rgba(0,0,0,0.03)]">
++                <div className="flex justify-between items-end mb-6">
++                    <h3 className="text-slate-800 font-serif font-bold text-lg flex items-center gap-2">
++                        <span className="material-symbols-outlined text-slate-400">grid_on</span> Correlation Matrix
++                    </h3>
++                    <div className="flex gap-4 bg-slate-50 px-3 py-1.5 rounded-sm border border-slate-100">
++                        <div className="flex items-center gap-1.5">
++                            <span className="block w-2.5 h-2.5 bg-emerald-100 border border-emerald-200 rounded-sm"></span>
++                            <span className="text-[10px] text-slate-500 uppercase tracking-wide font-bold">Negative</span>
++                        </div>
++                        <div className="flex items-center gap-1.5">
++                            <span className="block w-2.5 h-2.5 bg-slate-50 border border-slate-200 rounded-sm"></span>
++                            <span className="text-[10px] text-slate-500 uppercase tracking-wide font-bold">Neutral</span>
++                        </div>
++                        <div className="flex items-center gap-1.5">
++                            <span className="block w-2.5 h-2.5 bg-[#1e3a8a]/10 border border-[#1e3a8a]/20 rounded-sm"></span>
++                            <span className="text-[10px] text-slate-500 uppercase tracking-wide font-bold">Positive</span>
++                        </div>
++                    </div>
++                </div>
++                <div className="flex-1 grid grid-cols-5 gap-px bg-slate-200 border border-slate-200 rounded-sm overflow-hidden">
++                    <div className="flex flex-col gap-px bg-slate-50">
++                        <div className="h-10 bg-white"></div> 
++                        <div className="flex-1 flex items-center justify-end px-4 text-[#1e3a8a] font-bold text-xs uppercase tracking-wide bg-white">US Equities</div>
++                        <div className="flex-1 flex items-center justify-end px-4 text-[#374151] font-bold text-xs uppercase tracking-wide bg-white">Emerging Mkt</div>
++                        <div className="flex-1 flex items-center justify-end px-4 text-[#14532d] font-bold text-xs uppercase tracking-wide bg-white">Treasuries</div>
++                        <div className="flex-1 flex items-center justify-end px-4 text-[#7f1d1d] font-bold text-xs uppercase tracking-wide bg-white">Real Estate</div>
++                    </div>
++                    {/* US Equities Column */}
++                    <div className="flex flex-col gap-px bg-white">
++                        <div className="h-10 flex items-center justify-center text-[#1e3a8a] font-bold text-xs uppercase tracking-wider bg-slate-50">US Equities</div>
++                        <div className="flex-1 bg-[#1e3a8a]/20 flex items-center justify-center text-slate-900 font-mono text-sm font-medium">1.00</div>
++                        <div className="flex-1 bg-[#1e3a8a]/10 flex items-center justify-center text-slate-600 font-mono text-sm">0.72</div>
++                        <div className="flex-1 bg-emerald-50 flex items-center justify-center text-emerald-700 font-mono text-sm">-0.32</div>
++                        <div className="flex-1 bg-[#1e3a8a]/5 flex items-center justify-center text-slate-600 font-mono text-sm">0.45</div>
++                    </div>
++                    {/* Emerging Column */}
++                    <div className="flex flex-col gap-px bg-white">
++                        <div className="h-10 flex items-center justify-center text-[#374151] font-bold text-xs uppercase tracking-wider bg-slate-50">Emerging</div>
++                        <div className="flex-1 bg-[#1e3a8a]/10 flex items-center justify-center text-slate-600 font-mono text-sm">0.72</div>
++                        <div className="flex-1 bg-[#1e3a8a]/20 flex items-center justify-center text-slate-900 font-mono text-sm font-medium">1.00</div>
++                        <div className="flex-1 bg-emerald-50 flex items-center justify-center text-emerald-700 font-mono text-sm">-0.15</div>
++                        <div className="flex-1 bg-[#1e3a8a]/5 flex items-center justify-center text-slate-600 font-mono text-sm">0.38</div>
++                    </div>
++                    {/* Treasuries Column */}
++                    <div className="flex flex-col gap-px bg-white">
++                        <div className="h-10 flex items-center justify-center text-[#14532d] font-bold text-xs uppercase tracking-wider bg-slate-50">Treasuries</div>
++                        <div className="flex-1 bg-emerald-50 flex items-center justify-center text-emerald-700 font-mono text-sm">-0.32</div>
++                        <div className="flex-1 bg-emerald-50 flex items-center justify-center text-emerald-700 font-mono text-sm">-0.15</div>
++                        <div className="flex-1 bg-[#1e3a8a]/20 flex items-center justify-center text-slate-900 font-mono text-sm font-medium">1.00</div>
++                        <div className="flex-1 bg-[#1e3a8a]/5 flex items-center justify-center text-slate-600 font-mono text-sm">0.12</div>
++                    </div>
++                    {/* Real Estate Column */}
++                    <div className="flex flex-col gap-px bg-white">
++                        <div className="h-10 flex items-center justify-center text-[#7f1d1d] font-bold text-xs uppercase tracking-wider bg-slate-50">Real Estate</div>
++                        <div className="flex-1 bg-[#1e3a8a]/5 flex items-center justify-center text-slate-600 font-mono text-sm">0.45</div>
++                        <div className="flex-1 bg-[#1e3a8a]/5 flex items-center justify-center text-slate-600 font-mono text-sm">0.38</div>
++                        <div className="flex-1 bg-[#1e3a8a]/5 flex items-center justify-center text-slate-600 font-mono text-sm">0.12</div>
++                        <div className="flex-1 bg-[#1e3a8a]/20 flex items-center justify-center text-slate-900 font-mono text-sm font-medium">1.00</div>
++                    </div>
++                </div>
++            </div>
++        </div>
++    );
++};
++
++export default CorrelationMatrix;
+diff --git a/src/components/portfolio/MetricsDisplay.tsx b/src/components/portfolio/MetricsDisplay.tsx
+new file mode 100644
+index 0000000..773c50c
+--- /dev/null
++++ b/src/components/portfolio/MetricsDisplay.tsx
+@@ -0,0 +1,77 @@
++import React from 'react';
++import { usePortfolioStore } from '../../store/portfolioStore';
++
++const MetricsDisplay: React.FC = () => {
++    const { metrics } = usePortfolioStore();
++
++    // Format helpers
++    const fmtPct = (n: number) => (n * 100).toFixed(2) + '%';
++    const fmtNum = (n: number) => n.toFixed(2);
++
++    return (
++        <div className="w-full h-1/3 relative mb-10 pointer-events-none">
++            <div className="absolute inset-0 flex items-end justify-center pb-8 pointer-events-auto">
++                {/* Yield */}
++                <div className="floating-bubble delay-1 absolute left-[15%] bottom-[20%] bg-white rounded-lg p-5 border border-slate-200 w-52 shadow-soft transform rotate-[-1deg] hover:scale-105 transition-all cursor-pointer z-10 hover:z-20 hover:shadow-md">
++                    <div className="flex justify-between items-center mb-2">
++                        <div className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Proj. Yield</div>
++                        <span className="material-symbols-outlined text-emerald-600 text-lg">trending_up</span>
++                    </div>
++                    <div className="text-3xl font-serif font-bold text-slate-800 mb-2">{fmtPct(metrics.yield)}</div>
++                    <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden border border-slate-100">
++                        <div className="h-full bg-emerald-600" style={{ width: `${Math.min(metrics.yield * 1000, 100)}%` }}></div>
++                    </div>
++                    <div className="mt-2 text-[10px] text-emerald-700 font-medium">+0.3% vs Target</div>
++                </div>
++
++                {/* Volatility */}
++                <div className="floating-bubble delay-2 absolute left-[32%] bottom-[45%] bg-white rounded-lg p-5 border border-slate-200 w-44 shadow-soft transform rotate-[2deg] hover:scale-105 transition-all cursor-pointer z-10 hover:z-20 hover:shadow-md">
++                    <div className="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-1">Volatility</div>
++                    <div className="text-2xl font-serif font-bold text-slate-800 mb-2">{fmtPct(metrics.volatility)}</div>
++                    <svg className="w-full h-8 text-[#1e3a8a] opacity-60" viewBox="0 0 100 40">
++                        <path d="M0 20 Q15 5 25 20 T50 20 T75 20 T100 20" fill="none" stroke="currentColor" strokeWidth="1.5"></path>
++                    </svg>
++                </div>
++
++                {/* Sharpe Ratio */}
++                <div className="floating-bubble delay-3 absolute right-[28%] bottom-[35%] bg-white rounded-lg p-5 border border-slate-200 w-48 shadow-soft transform rotate-[-1deg] hover:scale-105 transition-all cursor-pointer z-10 hover:z-20 hover:shadow-md">
++                    <div className="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-1">Sharpe Ratio</div>
++                    <div className="text-4xl font-serif font-black text-[#1e3a8a] mb-1">{fmtNum(metrics.sharpeRatio)}</div>
++                    <div className="text-[10px] text-slate-400 italic font-serif">Risk-adjusted returns</div>
++                </div>
++
++                {/* Max Drawdown */}
++                <div className="floating-bubble delay-4 absolute right-[10%] bottom-[15%] bg-white rounded-lg p-5 border border-slate-200 w-44 shadow-soft transform rotate-[3deg] hover:scale-105 transition-all cursor-pointer z-10 hover:z-20 hover:shadow-md">
++                    <div className="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-1">Max Drawdown</div>
++                    <div className="text-2xl font-serif font-bold text-[#991b1b] mb-2">{fmtPct(metrics.maxDrawdown)}</div>
++                    <div className="flex gap-0.5 items-end h-8 mt-1 border-b border-slate-100 pb-1">
++                        <div className="w-1.5 bg-[#991b1b] opacity-30 h-[40%]"></div>
++                        <div className="w-1.5 bg-[#991b1b] opacity-50 h-[60%]"></div>
++                        <div className="w-1.5 bg-[#991b1b] h-[100%]"></div>
++                        <div className="w-1.5 bg-[#991b1b] opacity-50 h-[70%]"></div>
++                        <div className="w-1.5 bg-[#991b1b] opacity-30 h-[30%]"></div>
++                    </div>
++                </div>
++            </div>
++             <style>{`
++                .floating-bubble {
++                    animation: float 6s ease-in-out infinite;
++                }
++                @keyframes float {
++                    0% { transform: translateY(0px); }
++                    50% { transform: translateY(-10px); }
++                    100% { transform: translateY(0px); }
++                }
++                .delay-1 { animation-delay: 0s; }
++                .delay-2 { animation-delay: 1.5s; }
++                .delay-3 { animation-delay: 3s; }
++                .delay-4 { animation-delay: 4.5s; }
++                .shadow-soft {
++                    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
++                }
++            `}</style>
++        </div>
++    );
++};
++
++export default MetricsDisplay;
+diff --git a/src/components/portfolio/PortfolioConstructor.tsx b/src/components/portfolio/PortfolioConstructor.tsx
+new file mode 100644
+index 0000000..7e1e7c0
+--- /dev/null
++++ b/src/components/portfolio/PortfolioConstructor.tsx
+@@ -0,0 +1,146 @@
++import React, { useEffect, useRef } from 'react';
++import { useSearchParams } from 'react-router-dom';
++import { usePortfolioStore } from '../../store/portfolioStore';
++import AllocationBar from './AllocationBar';
++import MetricsDisplay from './MetricsDisplay';
++import CorrelationMatrix from './CorrelationMatrix';
++// Import the worker using Vite's syntax
++import FinanceWorker from '../../workers/finance.worker?worker';
++
++const PortfolioConstructor: React.FC = () => {
++    const { assets, setAssets, updateMetrics } = usePortfolioStore();
++    const workerRef = useRef<Worker | null>(null);
++    const [searchParams, setSearchParams] = useSearchParams();
++
++    // 1. Initialize Worker
++    useEffect(() => {
++        workerRef.current = new FinanceWorker();
++
++        workerRef.current.onmessage = (e: MessageEvent) => {
++            const { metrics } = e.data;
++            if (metrics) {
++                updateMetrics(metrics);
++            }
++        };
++
++        return () => {
++            workerRef.current?.terminate();
++        };
++    }, [updateMetrics]);
++
++    // 2. Sync URL -> Store (on mount)
++    useEffect(() => {
++        const urlAssets = searchParams.toString();
++        if (!urlAssets) return;
++
++        // Clone current assets to preserve metadata like color, name
++        // We need to use the functional update form or access current assets.
++        // But since this runs only on mount, `assets` refers to the initial state (or whatever it is when mount happens).
++        // Since we want to use the latest assets definition (colors etc), we rely on the closure `assets`.
++        // Ideally we should pass a function to setAssets if we want to merge, but setAssets replaces everything.
++        // We'll trust that `assets` in the closure is the initial state from the store which has the correct structure.
++        
++        const newAssets = assets.map(asset => {
++            const val = searchParams.get(asset.id);
++            if (val) {
++                return { ...asset, allocation: parseFloat(val) };
++            }
++            return asset;
++        });
++        
++        const hasChanges = newAssets.some((a, i) => Math.abs(a.allocation - assets[i].allocation) > 0.01);
++
++        if (hasChanges) {
++             setAssets(newAssets);
++        }
++    }, []); // Run once on mount
++
++    // 3. Sync Store -> URL (when assets change)
++    useEffect(() => {
++        // Send allocations to worker
++        if (workerRef.current) {
++            const allocations: Record<string, number> = {};
++            assets.forEach(a => allocations[a.id] = a.allocation);
++            workerRef.current.postMessage({ allocations });
++        }
++
++        // Update URL
++        const params: Record<string, string> = {};
++        
++        assets.forEach(asset => {
++            params[asset.id] = asset.allocation.toFixed(2);
++        });
++
++        // Use replace to avoid polluting history
++        setSearchParams(params, { replace: true });
++
++    }, [assets, setSearchParams]);
++
++    return (
++        <div className="bg-slate-50 text-slate-900 font-sans antialiased h-screen overflow-hidden flex selection:bg-[#1e3a8a] selection:text-white">
++            <aside className="w-16 h-full bg-white border-r border-slate-200 flex flex-col items-center shrink-0 z-50 py-6 shadow-sm">
++                <div className="mb-8 w-10 h-10 flex items-center justify-center rounded-sm bg-[#1e3a8a] shadow-md">
++                    <span className="material-symbols-outlined text-white text-xl">account_balance</span>
++                </div>
++                <nav className="flex-1 w-full flex flex-col items-center gap-6">
++                    <a className="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-100 text-[#1e3a8a] relative group border border-slate-200" href="#">
++                        <span className="material-symbols-outlined text-xl">dashboard</span>
++                    </a>
++                    <a className="w-10 h-10 flex items-center justify-center rounded-lg text-slate-400 hover:text-[#1e3a8a] hover:bg-slate-50 transition-colors" href="#">
++                        <span className="material-symbols-outlined text-xl">tune</span>
++                    </a>
++                    <a className="w-10 h-10 flex items-center justify-center rounded-lg text-slate-400 hover:text-[#1e3a8a] hover:bg-slate-50 transition-colors" href="#">
++                        <span className="material-symbols-outlined text-xl">pie_chart</span>
++                    </a>
++                    <a className="w-10 h-10 flex items-center justify-center rounded-lg text-slate-400 hover:text-[#1e3a8a] hover:bg-slate-50 transition-colors" href="#">
++                        <span className="material-symbols-outlined text-xl">history_edu</span>
++                    </a>
++                </nav>
++                <div className="mt-auto flex flex-col gap-4 items-center">
++                    <button className="w-10 h-10 flex items-center justify-center rounded-lg text-slate-400 hover:text-[#1e3a8a] hover:bg-slate-50 transition-colors">
++                        <span className="material-symbols-outlined text-xl">settings</span>
++                    </button>
++                    <div className="w-8 h-8 rounded-full bg-slate-200 border border-slate-300 overflow-hidden">
++                        {/* Placeholder for user image */}
++                        <div className="w-full h-full bg-slate-300"></div>
++                    </div>
++                </div>
++            </aside>
++            <main className="flex-1 h-full relative overflow-hidden flex flex-col bg-slate-50">
++                <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#0f172a 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
++                
++                <header className="absolute top-0 left-0 w-full z-40 px-10 py-8 flex justify-between items-start pointer-events-none">
++                    <div className="pointer-events-auto">
++                        <h1 className="text-4xl font-serif font-bold text-slate-900 tracking-tight leading-tight">Institutional Slate<br/><span className="text-slate-500 font-normal italic text-2xl">Allocation Engine</span></h1>
++                    </div>
++                    <div className="flex gap-4 pointer-events-auto items-center">
++                        <div className="bg-white border border-slate-200 px-5 py-2.5 rounded-sm shadow-sm flex items-center gap-4">
++                            <div className="flex flex-col items-end">
++                                <span className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Total AUM</span>
++                                <span className="text-base font-serif font-bold text-slate-800">$1,245,890</span>
++                            </div>
++                            <div className="h-8 w-px bg-slate-200"></div>
++                            <span className="text-xs text-emerald-700 bg-emerald-50 px-2 py-1 rounded border border-emerald-100 font-medium">+1.2%</span>
++                        </div>
++                        <button className="bg-[#1e3a8a] hover:bg-blue-900 text-white px-8 py-3 rounded-sm font-medium text-sm shadow-md hover:shadow-lg transition-all active:transform active:translate-y-px flex items-center gap-2 font-serif tracking-wide">
++                            <span className="material-symbols-outlined text-sm">check_circle</span> COMMIT
++                        </button>
++                    </div>
++                </header>
++
++                <div className="flex-1 flex flex-col items-center justify-center relative w-full h-full max-w-7xl mx-auto px-12 pt-20">
++                    <MetricsDisplay />
++                    <div className="w-full z-30 mb-12">
++                         <div className="relative w-full px-4">
++                            <div className="absolute top-4 left-4 right-4 bottom-[-10px] bg-slate-300 blur-xl opacity-40 rounded-[2rem]"></div>
++                            <AllocationBar />
++                        </div>
++                    </div>
++                    <CorrelationMatrix />
++                </div>
++            </main>
++        </div>
++    );
++};
++
++export default PortfolioConstructor;
+diff --git a/src/store/portfolioStore.ts b/src/store/portfolioStore.ts
+new file mode 100644
+index 0000000..8396be0
+--- /dev/null
++++ b/src/store/portfolioStore.ts
+@@ -0,0 +1,79 @@
++import { create } from 'zustand';
++
++export interface Asset {
++  id: string;
++  name: string;
++  allocation: number; // Percentage 0-100
++  color: string;
++  colorHex: string; 
++  description: string;
++}
++
++export interface Metrics {
++  yield: number;
++  volatility: number;
++  sharpeRatio: number;
++  maxDrawdown: number;
++}
++
++interface PortfolioState {
++  assets: Asset[];
++  metrics: Metrics;
++  setAssets: (assets: Asset[]) => void;
++  updateMetrics: (metrics: Partial<Metrics>) => void;
++  updateAssetAllocation: (index: number, newAllocation: number) => void;
++}
++
++export const usePortfolioStore = create<PortfolioState>((set) => ({
++  assets: [
++    { 
++      id: 'us-equities', 
++      name: 'US Equities', 
++      allocation: 45, 
++      color: 'bg-[#1e3a8a]', 
++      colorHex: '#1e3a8a',
++      description: 'US EQUITIES'
++    },
++    { 
++      id: 'emerging-mkts', 
++      name: 'Emerging Mkts', 
++      allocation: 25, 
++      color: 'bg-[#374151]', 
++      colorHex: '#374151',
++      description: 'EMERGING MKTS'
++    },
++    { 
++      id: 'treasuries', 
++      name: 'Treasuries', 
++      allocation: 20, 
++      color: 'bg-[#14532d]', 
++      colorHex: '#14532d',
++      description: 'TREASURIES'
++    },
++    { 
++      id: 'real-estate', 
++      name: 'Real Estate', 
++      allocation: 10, 
++      color: 'bg-[#7f1d1d]', 
++      colorHex: '#7f1d1d',
++      description: 'REAL ESTATE'
++    },
++  ],
++  metrics: {
++    yield: 0.0845,
++    volatility: 0.142,
++    sharpeRatio: 1.82,
++    maxDrawdown: -0.124,
++  },
++  setAssets: (assets) => set({ assets }),
++  updateMetrics: (newMetrics) => set((state) => ({ 
++    metrics: { ...state.metrics, ...newMetrics } 
++  })),
++  updateAssetAllocation: (index, newAllocation) => set((state) => {
++    const newAssets = [...state.assets];
++    if (newAssets[index]) {
++        newAssets[index] = { ...newAssets[index], allocation: newAllocation };
++    }
++    return { assets: newAssets };
++  }),
++}));
+diff --git a/src/workers/finance.worker.ts b/src/workers/finance.worker.ts
+new file mode 100644
+index 0000000..81c8905
+--- /dev/null
++++ b/src/workers/finance.worker.ts
+@@ -0,0 +1,71 @@
++
++const ASSET_ORDER = ['us-equities', 'emerging-mkts', 'treasuries', 'real-estate'];
++
++// Annualized Expected Returns
++const EXPECTED_RETURNS = [0.085, 0.105, 0.032, 0.065]; // Slightly adjusted for variety
++
++// Standard Deviations (Volatilities)
++const VOLATILITIES = [0.16, 0.22, 0.05, 0.12];
++
++// Correlation Matrix
++// Order: US, EM, Treas, RE
++const CORRELATIONS = [
++    [1.00,  0.72, -0.32,  0.45], // US Equities
++    [0.72,  1.00, -0.15,  0.38], // Emerging Mkts
++    [-0.32, -0.15,  1.00,  0.12], // Treasuries
++    [0.45,  0.38,  0.12,  1.00]  // Real Estate
++];
++
++// Precompute Covariance Matrix
++const COVARIANCE_MATRIX = CORRELATIONS.map((row, i) => 
++    row.map((corr, j) => corr * VOLATILITIES[i] * VOLATILITIES[j])
++);
++
++const RISK_FREE_RATE = 0.025; // 2.5%
++
++self.onmessage = (e: MessageEvent) => {
++    const { allocations } = e.data as { allocations: Record<string, number> };
++
++    if (!allocations) return;
++
++    // 1. Parse weights (normalized 0-1)
++    const weights = ASSET_ORDER.map(id => (allocations[id] || 0) / 100);
++
++    // 2. Calculate Portfolio Return (Yield)
++    // R_p = w . R
++    const portfolioYield = weights.reduce((acc, w, i) => acc + w * EXPECTED_RETURNS[i], 0);
++
++    // 3. Calculate Portfolio Variance
++    // Var_p = w^T . Cov . w
++    let portfolioVariance = 0;
++    for (let i = 0; i < weights.length; i++) {
++        for (let j = 0; j < weights.length; j++) {
++            portfolioVariance += weights[i] * weights[j] * COVARIANCE_MATRIX[i][j];
++        }
++    }
++
++    const portfolioVolatility = Math.sqrt(portfolioVariance);
++
++    // 4. Calculate Sharpe Ratio
++    // Sharpe = (R_p - R_f) / Vol_p
++    const sharpeRatio = portfolioVolatility > 0.001 
++        ? (portfolioYield - RISK_FREE_RATE) / portfolioVolatility 
++        : 0;
++
++    // 5. Calculate Max Drawdown (Approximation)
++    // For Gaussian returns, MaxDD is related to Volatility.
++    // We'll use a heuristic: Expected Max DD ~ -2.5 * Volatility (99% VaR-ish)
++    const maxDrawdown = -2.5 * portfolioVolatility;
++
++    // Send back results
++    self.postMessage({
++        metrics: {
++            yield: portfolioYield,
++            volatility: portfolioVolatility,
++            sharpeRatio: sharpeRatio,
++            maxDrawdown: maxDrawdown
++        }
++    });
++};
++
++export {};
+diff --git a/test-results/.last-run.json b/test-results/.last-run.json
+new file mode 100644
+index 0000000..cbcc1fb
+--- /dev/null
++++ b/test-results/.last-run.json
+@@ -0,0 +1,4 @@
++{
++  "status": "passed",
++  "failedTests": []
++}
+\ No newline at end of file
+diff --git a/tests/verify.spec.ts b/tests/verify.spec.ts
+new file mode 100644
+index 0000000..72dbd6e
+--- /dev/null
++++ b/tests/verify.spec.ts
+@@ -0,0 +1,71 @@
++import { test, expect } from '@playwright/test';
++
++test('Verify Portfolio Constructor Drag and Drop', async ({ page }) => {
++    await page.goto('http://localhost:5173/portfolio-constructor');
++
++    // Target the blocks in the allocation bar using the unique class .cursor-grab
++    const usEquitiesBlock = page.locator('.cursor-grab').filter({ hasText: 'US Equities' });
++    const emergingMktsBlock = page.locator('.cursor-grab').filter({ hasText: 'Emerging Mkts' });
++
++    await expect(usEquitiesBlock).toBeVisible();
++    await expect(emergingMktsBlock).toBeVisible();
++
++    // Get initial percentages
++    // The percentage text is inside the block with class text-4xl or text-5xl
++    const usEquitiesValLocator = usEquitiesBlock.locator('.text-4xl, .text-5xl, .text-6xl').first();
++    const emergingMktsValLocator = emergingMktsBlock.locator('.text-4xl, .text-5xl, .text-6xl').first();
++
++    const parsePercentage = (text: string | null) => {
++        if (!text) return 0;
++        return parseFloat(text.replace(/[^0-9.]/g, ''));
++    };
++
++    const initialUsText = await usEquitiesValLocator.textContent();
++    const initialEmergingText = await emergingMktsValLocator.textContent();
++    const initialUsVal = parsePercentage(initialUsText);
++    const initialEmergingVal = parsePercentage(initialEmergingText);
++
++    console.log(`Initial: US=${initialUsVal}%, EM=${initialEmergingVal}%`);
++
++    // Divider
++    const divider = page.locator('.cursor-col-resize').first();
++    const box = await divider.boundingBox();
++    if (!box) throw new Error('Divider bounding box not found');
++
++    const startX = box.x + box.width / 2;
++    const startY = box.y + box.height / 2;
++
++    // Drag
++    await page.mouse.move(startX, startY);
++    await page.mouse.down();
++    
++    // Drag by 100 pixels to the right
++    await page.mouse.move(startX + 100, startY, { steps: 20 });
++    
++    // Check volatility
++    // The volatility bubble has "Volatility" text.
++    const volatilityBubble = page.locator('div').filter({ hasText: 'Volatility' }).last();
++    // The value is inside a text-2xl div sibling or child
++    // In MetricsDisplay: 
++    // <div ...>Volatility</div>
++    // <div class="text-2xl ...">14.2%</div>
++    // So we can look for the text-2xl inside the parent of "Volatility"
++    const volatilityValue = page.locator('div:has(> div:text-is("Volatility")) .text-2xl');
++
++    await expect(volatilityValue).toBeVisible();
++
++    await page.mouse.up();
++
++    // Verify
++    const finalUsText = await usEquitiesValLocator.textContent();
++    const finalEmergingText = await emergingMktsValLocator.textContent();
++    const finalUsVal = parsePercentage(finalUsText);
++    const finalEmergingVal = parsePercentage(finalEmergingText);
++
++    console.log(`Final: US=${finalUsVal}%, EM=${finalEmergingVal}%`);
++
++    expect(finalUsVal).toBeGreaterThan(initialUsVal);
++    expect(finalEmergingVal).toBeLessThan(initialEmergingVal);
++
++    await page.screenshot({ path: 'evidence.png' });
++});
