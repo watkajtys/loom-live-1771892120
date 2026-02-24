@@ -1,217 +1,288 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>LofiLoom Arctic Light Theme Variant 2</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<title>Cyber-Electric Allocation Engine</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "ice-blue": "#E0F7FA",
-                        "frost-white": "#F0F8FF",
-                        "electric-blue": "#00B0FF",
-                        "silver-accent": "#B0BEC5",
-                        "text-primary": "#263238",
-                        "text-secondary": "#546E7A",
-                        "background-light": "#E3F2FD",
+                        "bg-cyber": "#000000",
+                        "card-cyber": "#050505",
+                        "neon-cyan": "#00FFFF",
+                        "neon-magenta": "#FF00FF",
+                        "neon-lime": "#CCFF00",
+                        "neon-orange": "#FF4500",
+                        "neon-purple": "#BD00FF",
                     },
                     fontFamily: {
-                        "display": ["JetBrains Mono", "monospace"]
+                        sans: ["JetBrains Mono", "monospace"],
+                        mono: ["JetBrains Mono", "monospace"],
+                        display: ["JetBrains Mono", "monospace"],
                     },
-                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "2xl": "0.75rem", "full": "9999px"},
+                    boxShadow: {
+                        'glow-cyan': '0 0 20px -5px rgba(0, 255, 255, 0.5), inset 0 0 10px rgba(0, 255, 255, 0.2)',
+                        'glow-magenta': '0 0 20px -5px rgba(255, 0, 255, 0.5), inset 0 0 10px rgba(255, 0, 255, 0.2)',
+                        'glow-lime': '0 0 20px -5px rgba(204, 255, 0, 0.5), inset 0 0 10px rgba(204, 255, 0, 0.2)',
+                        'glow-orange': '0 0 20px -5px rgba(255, 69, 0, 0.5), inset 0 0 10px rgba(255, 69, 0, 0.2)',
+                        'glow-border': '0 0 10px -2px rgba(255, 255, 255, 0.3)',
+                    },
+                    backgroundImage: {
+                        'grid-cyber': "linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px)",
+                    }
                 },
             },
         }
     </script>
 <style>
         ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
+            width: 4px;
+            height: 4px;
         }
         ::-webkit-scrollbar-track {
-            background: transparent;
+            background: #000;
         }
         ::-webkit-scrollbar-thumb {
-            background: rgba(0, 176, 255, 0.2);
-            border-radius: 3px;
+            background: #333;
+            border-radius: 0px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 176, 255, 0.4);
+            background: #00FFFF;
         }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 8px 32px rgba(176, 190, 197, 0.2);
+        .glass-panel-cyber {
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 255, 255, 0.15);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.05);
         }
-        .glass-panel-deep {
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(45px);
-            -webkit-backdrop-filter: blur(45px);
-            border-top: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+        .neon-text {
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
         }
-        input[type=range] {
-            -webkit-appearance: none; 
-            background: transparent; 
+        .neon-text-magenta {
+            text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
         }
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            height: 14px;
-            width: 14px;
-            border-radius: 0;background: #00B0FF;
-            cursor: pointer;
-            margin-top: -5px; 
-            box-shadow: 0 0 8px rgba(0, 176, 255, 0.5);
-            border: 1px solid #fff;
+        .floating-bubble {
+            animation: float 6s ease-in-out infinite;
         }
-        input[type=range]::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 4px;
-            cursor: pointer;
-            background: rgba(38, 50, 56, 0.1);
-            border-radius: 0;
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
-        input[type=range]:focus {
-            outline: none; 
-        }
-        @keyframes pulse-crisp {
-            0%, 100% { box-shadow: 0 0 10px rgba(0, 176, 255, 0.2); }
-            50% { box-shadow: 0 0 20px rgba(0, 176, 255, 0.5); }
-        }
-        .glow-ring {
-            animation: pulse-crisp 4s infinite ease-in-out;
-        }
-    </style>
+        .delay-1 { animation-delay: 0s; }
+        .delay-2 { animation-delay: 1.5s; }
+        .delay-3 { animation-delay: 3s; }
+        .delay-4 { animation-delay: 4.5s; }.heatmap-high { background: #FFEB3B; color: #000; box-shadow: 0 0 10px #FFEB3B; }.heatmap-mid-high { background: #FF9800; color: #000; }.heatmap-mid { background: #F44336; color: #fff; }.heatmap-mid-low { background: #9C27B0; color: #fff; }.heatmap-low { background: #3F51B5; color: #fff; box-shadow: 0 0 10px #3F51B5; }.heatmap-neg { background: #000; border: 1px solid #00FFFF; color: #00FFFF; box-shadow: inset 0 0 5px #00FFFF; }</style>
 </head>
-<body class="font-display bg-background-light text-text-primary h-screen w-screen overflow-hidden relative selection:bg-electric-blue selection:text-white">
-<div class="fixed inset-0 z-0">
-<div class="absolute inset-0 bg-white/30 backdrop-blur-[2px] z-10 pointer-events-none mix-blend-overlay"></div>
-<img alt="Snowy morning scene through window" class="w-full h-full object-cover object-center opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGywPj5t7uRG0QAKLphhcBU5PrKvg4HAYb3s6c1jDcFM8Y-B06BvmwBY3T-jH6z9nm8r0BPnwCBTEwL2HEJrWWasSzFXn_rYSu6P4fJvmH5AsXPQoBbPxjWbIL1Cv-nCRNN46AK12l6Z3p9eoKv4TfAy339nGSyfCTiu7odvc6J5rScMXz-txzvtFhZhdZ05YR4z3Ov39hpQGGQWWeAIzZkLoiH41o6nPerHnsAFyxZX_-DgP4OA4jjRW0fvsrDga3iE8vBL7iW_8"/>
+<body class="bg-bg-cyber text-slate-200 font-mono antialiased h-screen overflow-hidden flex selection:bg-neon-cyan selection:text-black">
+<aside class="w-16 h-full bg-black border-r border-slate-800/60 flex flex-col items-center shrink-0 z-50 py-6">
+<div class="mb-8 w-10 h-10 flex items-center justify-center rounded-none border border-neon-cyan/50 shadow-[0_0_15px_rgba(0,255,255,0.3)] bg-black">
+<span class="material-symbols-outlined text-neon-cyan text-xl">terminal</span>
 </div>
-<nav class="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-8 bg-gradient-to-b from-white/80 to-transparent">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-electric-blue text-3xl drop-shadow-[0_0_8px_rgba(0,176,255,0.4)]">headphones</span>
-<span class="text-text-primary font-bold text-lg tracking-wide uppercase">LofiLoom<span class="text-electric-blue text-xs align-top ml-1">v2</span></span>
-</div>
-<div class="flex items-center gap-6">
-<div class="hidden md:flex items-center gap-2 text-text-secondary text-xs font-medium bg-white/40 px-4 py-2 rounded-sm border border-white/60 backdrop-blur-md shadow-sm">
-<span class="material-symbols-outlined text-electric-blue text-base">timer</span>
-<span class="tracking-tight">SESSION: 00:45:00</span>
-</div>
-<div class="flex items-center gap-3 cursor-pointer group">
-<div class="size-8 rounded-sm border border-white/50 overflow-hidden shadow-sm">
-<img alt="User profile avatar" class="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQExQBHfWJqTQgtxDg2jHHFqdQhpS992LP-o2S3u9Z-3gS-m05hQvpb28jY8FnEf3PeALZ7XOux9z27smmCzkIPSj72mt9EcSUO-g7_b3aQZJzii4r5mEfs5Tzk_D1tX8s0LguImvMASmKxY9_1UWEwNvSj9bSh4IzObX06QYh9XzyIQaMol6jiu0QypYdWk-vMsu0V4OhozVkD3qIOWgtF2BUoo9k_LUCpN16uZpqjZkNqbKj1n1nZolEm9nGzcxZejHnxWz2sB4"/>
-</div>
-</div>
-</div>
+<nav class="flex-1 w-full flex flex-col items-center gap-6">
+<a class="w-10 h-10 flex items-center justify-center rounded-none bg-neon-cyan/10 text-neon-cyan border border-neon-cyan/30 relative group" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="absolute left-14 bg-black text-neon-cyan text-xs px-2 py-1 border border-neon-cyan opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-[0_0_10px_rgba(0,255,255,0.3)]">DASHBOARD</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-none text-slate-500 hover:text-neon-magenta hover:bg-neon-magenta/10 hover:border hover:border-neon-magenta/30 transition-all relative group" href="#">
+<span class="material-symbols-outlined text-xl">tune</span>
+<span class="absolute left-14 bg-black text-neon-magenta text-xs px-2 py-1 border border-neon-magenta opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-[0_0_10px_rgba(255,0,255,0.3)]">ADJUSTER</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-none text-slate-500 hover:text-neon-lime hover:bg-neon-lime/10 hover:border hover:border-neon-lime/30 transition-all relative group" href="#">
+<span class="material-symbols-outlined text-xl">bubble_chart</span>
+<span class="absolute left-14 bg-black text-neon-lime text-xs px-2 py-1 border border-neon-lime opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-[0_0_10px_rgba(204,255,0,0.3)]">ANALYSIS</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-none text-slate-500 hover:text-neon-orange hover:bg-neon-orange/10 hover:border hover:border-neon-orange/30 transition-all relative group" href="#">
+<span class="material-symbols-outlined text-xl">history</span>
+<span class="absolute left-14 bg-black text-neon-orange text-xs px-2 py-1 border border-neon-orange opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-[0_0_10px_rgba(255,69,0,0.3)]">HISTORY</span>
+</a>
 </nav>
-<div class="relative z-20 h-full w-full flex flex-col justify-between pt-16 pb-32 px-8">
-<div class="flex-1 flex w-full">
-<div class="hidden lg:block lg:w-2/3"></div>
-<div class="w-full lg:w-1/3 flex flex-col items-center justify-center lg:items-end lg:justify-start lg:pt-12">
-<div class="glass-panel rounded-lg p-8 w-full max-w-md flex flex-col items-center relative overflow-hidden transition-all hover:border-white hover:shadow-lg">
-<div class="relative size-64 flex items-center justify-center mb-8">
-<div class="absolute inset-0 rounded-full border border-slate-300/30"></div>
-<svg class="absolute inset-0 size-full -rotate-90 transform glow-ring rounded-full" viewBox="0 0 256 256">
-<circle cx="128" cy="128" fill="none" r="116" stroke="#CFD8DC" stroke-width="1"></circle>
-<circle class="drop-shadow-[0_0_5px_rgba(0,176,255,0.4)]" cx="128" cy="128" fill="none" r="116" stroke="#00B0FF" stroke-dasharray="728" stroke-dashoffset="182" stroke-linecap="round" stroke-width="2"></circle>
+<div class="mt-auto flex flex-col gap-4 items-center">
+<button class="w-10 h-10 flex items-center justify-center rounded-none text-slate-500 hover:text-white hover:border hover:border-white/30 transition-colors">
+<span class="material-symbols-outlined text-xl">settings</span>
+</button>
+<div class="w-8 h-8 bg-black border border-slate-700 flex items-center justify-center text-[10px] text-slate-500 font-bold">USR</div>
+</div>
+</aside>
+<main class="flex-1 h-full relative overflow-hidden flex flex-col bg-bg-cyber">
+<div class="absolute inset-0 bg-grid-cyber bg-[size:40px_40px] pointer-events-none opacity-20"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none"></div>
+<div class="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-neon-cyan/5 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
+<div class="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-neon-magenta/5 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
+<header class="absolute top-0 left-0 w-full z-40 px-8 py-6 flex justify-between items-start pointer-events-none border-b border-white/5 bg-black/50 backdrop-blur-sm">
+<div class="pointer-events-auto">
+<h1 class="text-2xl font-bold text-white tracking-widest uppercase leading-none neon-text">
+                    Cyber<span class="text-neon-cyan">Allocation</span>
+<br/><span class="text-slate-600 text-xs tracking-[0.3em]">ENGINE v4.0.2</span>
+</h1>
+</div>
+<div class="flex gap-4 pointer-events-auto items-center">
+<div class="glass-panel-cyber px-4 py-2 flex items-center gap-4 rounded-none border-neon-cyan/30">
+<span class="text-[10px] text-neon-cyan uppercase tracking-widest font-bold">Total AUM</span>
+<span class="text-sm font-bold text-white tracking-widest">$1,245,890</span>
+<span class="text-[10px] text-black bg-neon-lime px-1 py-0.5 font-bold">+1.2%</span>
+</div>
+<button class="bg-black hover:bg-neon-cyan hover:text-black text-neon-cyan border border-neon-cyan px-6 py-2 font-bold text-xs uppercase tracking-widest shadow-[0_0_15px_rgba(0,255,255,0.2)] transition-all hover:shadow-[0_0_25px_rgba(0,255,255,0.6)] flex items-center gap-2 group">
+<span class="material-symbols-outlined text-sm group-hover:animate-pulse">terminal</span> EXECUTE
+                </button>
+</div>
+</header>
+<div class="flex-1 flex flex-col items-center justify-center relative w-full h-full max-w-[1600px] mx-auto px-12 pt-16">
+<div class="w-full h-1/3 relative mb-12 perspective-1000">
+<div class="absolute inset-0 flex items-end justify-center pb-8">
+<div class="floating-bubble delay-1 absolute left-[15%] bottom-[20%] glass-panel-cyber p-4 border-l-4 border-neon-lime w-48 transform rotate-[-1deg] hover:scale-110 transition-transform cursor-pointer z-10 hover:z-20 group">
+<div class="text-[10px] text-neon-lime uppercase tracking-widest font-bold mb-1 opacity-80 group-hover:opacity-100">Proj. Yield</div>
+<div class="text-2xl font-bold text-white mb-2 tracking-tighter">8.45<span class="text-sm text-slate-500">%</span></div>
+<div class="h-1 w-full bg-slate-800 overflow-hidden">
+<div class="h-full bg-neon-lime w-[75%] shadow-[0_0_10px_rgba(204,255,0,0.5)]"></div>
+</div>
+<div class="mt-2 text-[10px] text-slate-400 font-mono">&gt; Target +0.3%</div>
+</div>
+<div class="floating-bubble delay-2 absolute left-[35%] bottom-[40%] glass-panel-cyber p-4 border-l-4 border-neon-magenta w-44 transform rotate-[1deg] hover:scale-110 transition-transform cursor-pointer z-10 hover:z-20 group">
+<div class="text-[10px] text-neon-magenta uppercase tracking-widest font-bold mb-1 opacity-80 group-hover:opacity-100">Volatility</div>
+<div class="text-xl font-bold text-white mb-1 tracking-tighter">14.2%</div>
+<svg class="w-full h-8 text-neon-magenta drop-shadow-[0_0_5px_rgba(255,0,255,0.5)]" viewBox="0 0 100 40">
+<path d="M0 20 L10 10 L20 30 L30 15 L40 25 L50 5 L60 35 L70 15 L80 25 L90 10 L100 20" fill="none" stroke="currentColor" stroke-width="1.5"></path>
 </svg>
-<div class="flex flex-col items-center z-10">
-<span class="text-7xl font-light text-text-primary tracking-tighter tabular-nums drop-shadow-sm" style="font-feature-settings: 'tnum' on, 'lnum' on;">25:00</span>
-<span class="text-electric-blue text-[10px] uppercase tracking-[0.3em] mt-2 font-bold bg-electric-blue/10 px-2 py-0.5 rounded-sm">Focus_Mode</span>
 </div>
+<div class="floating-bubble delay-3 absolute right-[30%] bottom-[30%] glass-panel-cyber p-4 border-l-4 border-neon-cyan w-48 transform rotate-[-1deg] hover:scale-110 transition-transform cursor-pointer z-10 hover:z-20 group">
+<div class="text-[10px] text-neon-cyan uppercase tracking-widest font-bold mb-1 opacity-80 group-hover:opacity-100">Sharpe Ratio</div>
+<div class="text-3xl font-black text-white mb-1 tracking-tighter shadow-neon-cyan">1.82</div>
+<div class="text-[9px] text-slate-400 uppercase tracking-wide border-t border-slate-800 pt-1 mt-1">Optimization: Optimal</div>
 </div>
-<div class="flex items-center gap-6 w-full justify-center">
-<button class="text-silver-accent hover:text-electric-blue transition-colors p-2 rounded-full hover:bg-electric-blue/5">
-<span class="material-symbols-outlined text-2xl">replay</span>
-</button>
-<button class="h-14 w-14 rounded-full bg-electric-blue text-white flex items-center justify-center shadow-[0_4px_15px_rgba(0,176,255,0.3)] hover:scale-105 hover:bg-sky-500 active:scale-95 transition-all">
-<span class="material-symbols-outlined text-3xl filled" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
-</button>
-<button class="text-silver-accent hover:text-electric-blue transition-colors p-2 rounded-full hover:bg-electric-blue/5">
-<span class="material-symbols-outlined text-2xl">stop</span>
-</button>
-</div>
-<div class="flex bg-slate-200/50 rounded-sm p-1 mt-8 w-full border border-white/50">
-<button class="flex-1 py-2 text-xs font-bold text-electric-blue bg-white shadow-sm rounded-sm border border-slate-100">FOCUS</button>
-<button class="flex-1 py-2 text-xs font-medium text-text-secondary hover:text-text-primary hover:bg-white/50 transition-colors rounded-sm">SHORT</button>
-<button class="flex-1 py-2 text-xs font-medium text-text-secondary hover:text-text-primary hover:bg-white/50 transition-colors rounded-sm">LONG</button>
+<div class="floating-bubble delay-4 absolute right-[10%] bottom-[15%] glass-panel-cyber p-4 border-l-4 border-neon-orange w-44 transform rotate-[2deg] hover:scale-110 transition-transform cursor-pointer z-10 hover:z-20 group">
+<div class="text-[10px] text-neon-orange uppercase tracking-widest font-bold mb-1 opacity-80 group-hover:opacity-100">Max Drawdown</div>
+<div class="text-xl font-bold text-white mb-2 tracking-tighter">-12.4%</div>
+<div class="flex gap-1 items-end h-6 mt-1 opacity-80">
+<div class="w-1.5 bg-neon-orange/30 h-[40%]"></div>
+<div class="w-1.5 bg-neon-orange/50 h-[60%]"></div>
+<div class="w-1.5 bg-neon-orange h-[100%] shadow-[0_0_10px_rgba(255,69,0,0.8)]"></div>
+<div class="w-1.5 bg-neon-orange/50 h-[70%]"></div>
+<div class="w-1.5 bg-neon-orange/30 h-[30%]"></div>
 </div>
 </div>
 </div>
 </div>
+<div class="w-full z-30 mb-8 px-4">
+<div class="relative w-full">
+<div class="absolute top-1/2 left-[20%] -translate-y-1/2 w-1/4 h-8 bg-neon-cyan blur-[80px] opacity-30 pointer-events-none"></div>
+<div class="absolute top-1/2 left-[55%] -translate-y-1/2 w-1/6 h-8 bg-neon-magenta blur-[80px] opacity-30 pointer-events-none"></div>
+<div class="absolute top-1/2 left-[75%] -translate-y-1/2 w-1/6 h-8 bg-neon-lime blur-[80px] opacity-30 pointer-events-none"></div>
+<div class="h-32 w-full border border-slate-800 bg-black overflow-hidden flex shadow-[0_0_30px_rgba(0,0,0,1)] relative select-none">
+<div class="h-full bg-black border-r border-slate-900 relative group transition-all duration-300 ease-out flex flex-col items-center justify-center cursor-crosshair active:cursor-grabbing hover:bg-neon-cyan/5 shadow-[inset_0_0_20px_rgba(0,255,255,0.1)]" style="width: 45%;">
+<div class="absolute inset-0 border border-neon-cyan/30 opacity-50 group-hover:opacity-100 transition-opacity box-border"></div>
+<div class="text-white font-black text-5xl tracking-tighter neon-text">45<span class="text-2xl align-top opacity-50 text-neon-cyan">%</span></div>
+<div class="text-neon-cyan font-bold text-[10px] uppercase tracking-[0.2em] mt-2 group-hover:text-white transition-colors bg-black/50 px-2 py-1 border border-neon-cyan/20">US Equities</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-neon-cyan shadow-[0_0_10px_#00FFFF]"></div>
 </div>
-<div class="fixed bottom-0 left-0 right-0 z-40 glass-panel-deep px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-8 h-auto md:h-28 shadow-xl border-t border-white/80">
-<div class="hidden md:flex items-center gap-4 w-64 shrink-0">
-<div class="relative size-14 rounded-sm overflow-hidden bg-white/60 shadow-sm group cursor-pointer border border-slate-200">
-<img alt="Album art" class="object-cover w-full h-full opacity-90 group-hover:opacity-100 transition-opacity grayscale-[20%]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9gvKgX5ZCwKa8RJBtFhlK4uG6GSCPyTKZy9LWI01zOZpSAz-ShnRB34fDaXCy7NPOz9ZTFR59o-Xb_OPmXcCgtFFWJnzBEUhHB9gH9pMLdwIW0vrS6ZWiF8LvYqUuNspbWEA1as9TSNevPgf7ksWxpmhISsBiox0EkYzlbPAsbf0BTep91I8quRuuTfeGZorrCdwzBvBOR5mqQMByXaj_Zjh_SXPKR6azHG5dckqYPE4ZmBgoS4wJE5JmTs_6fSYqS8s05eBJ3FA"/>
-<div class="absolute inset-0 flex items-center justify-center bg-white/40 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-[1px]">
-<span class="material-symbols-outlined text-text-primary text-xl">open_in_full</span>
+<div class="w-4 h-full bg-black border-x border-slate-800 cursor-col-resize hover:border-white/50 transition-colors z-20 flex flex-col justify-center items-center group/handle relative">
+<div class="h-8 w-1 bg-slate-700 rounded-full group-hover/handle:bg-white group-hover/handle:shadow-[0_0_10px_white] transition-all"></div>
 </div>
+<div class="h-full bg-black border-r border-slate-900 relative group transition-all duration-300 ease-out flex flex-col items-center justify-center cursor-crosshair active:cursor-grabbing hover:bg-neon-magenta/5 shadow-[inset_0_0_20px_rgba(255,0,255,0.1)]" style="width: 25%;">
+<div class="absolute inset-0 border border-neon-magenta/30 opacity-50 group-hover:opacity-100 transition-opacity box-border"></div>
+<div class="text-white font-black text-4xl tracking-tighter neon-text-magenta">25<span class="text-2xl align-top opacity-50 text-neon-magenta">%</span></div>
+<div class="text-neon-magenta font-bold text-[10px] uppercase tracking-[0.2em] mt-2 group-hover:text-white transition-colors bg-black/50 px-2 py-1 border border-neon-magenta/20">Emerging</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-neon-magenta shadow-[0_0_10px_#FF00FF]"></div>
 </div>
-<div class="flex flex-col">
-<h3 class="text-text-primary text-sm font-bold leading-tight uppercase tracking-tight">Rainy Night Cafe</h3>
-<p class="text-[10px] text-electric-blue mt-1 uppercase tracking-wide font-medium">Ambient Flow</p>
+<div class="w-4 h-full bg-black border-x border-slate-800 cursor-col-resize hover:border-white/50 transition-colors z-20 flex flex-col justify-center items-center group/handle relative">
+<div class="h-8 w-1 bg-slate-700 rounded-full group-hover/handle:bg-white group-hover/handle:shadow-[0_0_10px_white] transition-all"></div>
 </div>
+<div class="h-full bg-black border-r border-slate-900 relative group transition-all duration-300 ease-out flex flex-col items-center justify-center cursor-crosshair active:cursor-grabbing hover:bg-neon-lime/5 shadow-[inset_0_0_20px_rgba(204,255,0,0.1)]" style="width: 20%;">
+<div class="absolute inset-0 border border-neon-lime/30 opacity-50 group-hover:opacity-100 transition-opacity box-border"></div>
+<div class="text-white font-black text-4xl tracking-tighter text-shadow-[0_0_5px_rgba(204,255,0,0.5)]">20<span class="text-2xl align-top opacity-50 text-neon-lime">%</span></div>
+<div class="text-neon-lime font-bold text-[10px] uppercase tracking-[0.2em] mt-2 group-hover:text-white transition-colors bg-black/50 px-2 py-1 border border-neon-lime/20">Treasuries</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-neon-lime shadow-[0_0_10px_#CCFF00]"></div>
 </div>
-<div class="flex-1 w-full flex items-center justify-center gap-4 md:gap-8 overflow-x-auto pb-2 md:pb-0 px-4 scrollbar-hide">
-<div class="flex flex-col items-center gap-2 min-w-[80px] group">
-<div class="flex items-center gap-2 mb-1 opacity-70 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-lg text-blue-400">water_drop</span>
-<span class="text-[10px] uppercase tracking-wider font-bold text-text-secondary group-hover:text-blue-500">Rain</span>
+<div class="w-4 h-full bg-black border-x border-slate-800 cursor-col-resize hover:border-white/50 transition-colors z-20 flex flex-col justify-center items-center group/handle relative">
+<div class="h-8 w-1 bg-slate-700 rounded-full group-hover/handle:bg-white group-hover/handle:shadow-[0_0_10px_white] transition-all"></div>
 </div>
-<input class="w-32 h-1 bg-slate-200 rounded-none appearance-none cursor-pointer accent-blue-500 hover:bg-slate-300 transition-colors" max="100" min="0" type="range" value="75"/>
-</div>
-<div class="flex flex-col items-center gap-2 min-w-[80px] group">
-<div class="flex items-center gap-2 mb-1 opacity-70 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-lg text-orange-400">storefront</span>
-<span class="text-[10px] uppercase tracking-wider font-bold text-text-secondary group-hover:text-orange-500">Cafe</span>
-</div>
-<input class="w-32 h-1 bg-slate-200 rounded-none appearance-none cursor-pointer accent-orange-500 hover:bg-slate-300 transition-colors" max="100" min="0" type="range" value="30"/>
-</div>
-<div class="flex flex-col items-center gap-2 min-w-[80px] group">
-<div class="flex items-center gap-2 mb-1 opacity-70 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-lg text-red-400">local_fire_department</span>
-<span class="text-[10px] uppercase tracking-wider font-bold text-text-secondary group-hover:text-red-500">Fire</span>
-</div>
-<input class="w-32 h-1 bg-slate-200 rounded-none appearance-none cursor-pointer accent-red-500 hover:bg-slate-300 transition-colors" max="100" min="0" type="range" value="15"/>
-</div>
-<div class="flex flex-col items-center gap-2 min-w-[80px] group">
-<div class="flex items-center gap-2 mb-1 opacity-70 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-lg text-amber-400">album</span>
-<span class="text-[10px] uppercase tracking-wider font-bold text-text-secondary group-hover:text-amber-500">Vinyl</span>
-</div>
-<input class="w-32 h-1 bg-slate-200 rounded-none appearance-none cursor-pointer accent-amber-500 hover:bg-slate-300 transition-colors" max="100" min="0" type="range" value="45"/>
-</div>
-<div class="flex flex-col items-center gap-2 min-w-[80px] group">
-<div class="flex items-center gap-2 mb-1 opacity-70 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-lg text-green-400">flutter_dash</span>
-<span class="text-[10px] uppercase tracking-wider font-bold text-text-secondary group-hover:text-green-500">Nature</span>
-</div>
-<input class="w-32 h-1 bg-slate-200 rounded-none appearance-none cursor-pointer accent-green-500 hover:bg-slate-300 transition-colors" max="100" min="0" type="range" value="0"/>
+<div class="h-full bg-black relative group transition-all duration-300 ease-out flex flex-col items-center justify-center cursor-crosshair active:cursor-grabbing hover:bg-neon-orange/5 shadow-[inset_0_0_20px_rgba(255,69,0,0.1)]" style="width: 10%;">
+<div class="absolute inset-0 border border-neon-orange/30 opacity-50 group-hover:opacity-100 transition-opacity box-border"></div>
+<div class="text-white font-black text-3xl tracking-tighter text-shadow-[0_0_5px_rgba(255,69,0,0.5)]">10<span class="text-xl align-top opacity-50 text-neon-orange">%</span></div>
+<div class="text-neon-orange font-bold text-[10px] uppercase tracking-[0.2em] mt-2 group-hover:text-white transition-colors bg-black/50 px-2 py-1 border border-neon-orange/20">Real Est</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-neon-orange shadow-[0_0_10px_#FF4500]"></div>
 </div>
 </div>
-<div class="flex items-center gap-4 w-64 justify-end shrink-0 border-l border-slate-300 pl-6 h-12">
-<button class="text-silver-accent hover:text-text-primary transition-colors">
-<span class="material-symbols-outlined">tune</span>
-</button>
-<div class="flex items-center gap-2 group">
-<span class="material-symbols-outlined text-silver-accent group-hover:text-text-primary text-xl">volume_up</span>
-<input class="w-20 h-1 bg-slate-200 rounded-none appearance-none cursor-pointer accent-text-primary" max="100" min="0" type="range" value="80"/>
-</div>
-<button class="text-silver-accent hover:text-text-primary transition-colors ml-2">
-<span class="material-symbols-outlined">fullscreen</span>
-</button>
+<div class="flex justify-between mt-3 px-1 border-t border-slate-800 pt-2">
+<div class="flex items-center gap-2 text-slate-500 text-[10px] uppercase tracking-widest font-mono">
+<span class="w-2 h-2 bg-slate-700 shadow-[0_0_5px_#334155]"></span> Current Allocation
+                        </div>
+<div class="flex items-center gap-2 text-neon-cyan text-[10px] uppercase tracking-widest font-mono">
+                             Target: Balanced Growth [ALG-44]
+                        </div>
 </div>
 </div>
+</div>
+<div class="w-full flex-1 min-h-0 relative px-4 pb-4">
+<div class="glass-panel-cyber w-full h-full border-t border-slate-800 p-8 flex flex-col shadow-[inset_0_0_50px_rgba(0,0,0,0.8)]">
+<div class="flex justify-between items-end mb-6">
+<h3 class="text-white font-bold uppercase tracking-[0.2em] text-xs flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-neon-cyan">grid_view</span> Correlation Matrix_v2
+                        </h3>
+<div class="flex gap-4 border border-slate-800 p-1 bg-black">
+<div class="flex items-center gap-1.5 px-2">
+<span class="block w-2 h-2 bg-black border border-neon-cyan shadow-[0_0_5px_#00FFFF]"></span>
+<span class="text-[9px] text-neon-cyan uppercase font-bold">Neg</span>
+</div>
+<div class="flex items-center gap-1.5 px-2">
+<span class="block w-2 h-2 bg-[#3F51B5]"></span>
+<span class="text-[9px] text-slate-400 uppercase font-bold">Low</span>
+</div>
+<div class="flex items-center gap-1.5 px-2">
+<span class="block w-2 h-2 bg-[#FFEB3B] shadow-[0_0_5px_#FFEB3B]"></span>
+<span class="text-[9px] text-[#FFEB3B] uppercase font-bold">High</span>
+</div>
+</div>
+</div>
+<div class="flex-1 grid grid-cols-5 gap-1 font-mono text-xs">
+<div class="flex flex-col gap-1 pt-10">
+<div class="flex-1 flex items-center justify-end px-4 text-neon-cyan font-bold tracking-widest border-r-2 border-neon-cyan bg-neon-cyan/5">US EQUITIES</div>
+<div class="flex-1 flex items-center justify-end px-4 text-neon-magenta font-bold tracking-widest border-r-2 border-neon-magenta bg-neon-magenta/5">EMERGING</div>
+<div class="flex-1 flex items-center justify-end px-4 text-neon-lime font-bold tracking-widest border-r-2 border-neon-lime bg-neon-lime/5">TREASURIES</div>
+<div class="flex-1 flex items-center justify-end px-4 text-neon-orange font-bold tracking-widest border-r-2 border-neon-orange bg-neon-orange/5">REAL EST</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-8 flex items-end justify-center pb-2 text-neon-cyan font-bold text-[10px] uppercase tracking-wider border-b-2 border-neon-cyan mb-1">US EQ</div>
+<div class="flex-1 heatmap-high flex items-center justify-center font-bold relative group">
+                                1.00
+                                <div class="absolute inset-0 border border-white opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="flex-1 heatmap-mid-high flex items-center justify-center font-bold relative group">0.72</div>
+<div class="flex-1 heatmap-neg flex items-center justify-center font-bold relative group">-0.32</div>
+<div class="flex-1 heatmap-mid flex items-center justify-center font-bold relative group">0.45</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-8 flex items-end justify-center pb-2 text-neon-magenta font-bold text-[10px] uppercase tracking-wider border-b-2 border-neon-magenta mb-1">EMERG</div>
+<div class="flex-1 heatmap-mid-high flex items-center justify-center font-bold relative group">0.72</div>
+<div class="flex-1 heatmap-high flex items-center justify-center font-bold relative group">1.00</div>
+<div class="flex-1 heatmap-neg flex items-center justify-center font-bold relative group">-0.15</div>
+<div class="flex-1 heatmap-mid-low flex items-center justify-center font-bold relative group">0.38</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-8 flex items-end justify-center pb-2 text-neon-lime font-bold text-[10px] uppercase tracking-wider border-b-2 border-neon-lime mb-1">TREAS</div>
+<div class="flex-1 heatmap-neg flex items-center justify-center font-bold relative group">-0.32</div>
+<div class="flex-1 heatmap-neg flex items-center justify-center font-bold relative group">-0.15</div>
+<div class="flex-1 heatmap-high flex items-center justify-center font-bold relative group">1.00</div>
+<div class="flex-1 heatmap-low flex items-center justify-center font-bold relative group">0.12</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-8 flex items-end justify-center pb-2 text-neon-orange font-bold text-[10px] uppercase tracking-wider border-b-2 border-neon-orange mb-1">RL EST</div>
+<div class="flex-1 heatmap-mid flex items-center justify-center font-bold relative group">0.45</div>
+<div class="flex-1 heatmap-mid-low flex items-center justify-center font-bold relative group">0.38</div>
+<div class="flex-1 heatmap-low flex items-center justify-center font-bold relative group">0.12</div>
+<div class="flex-1 heatmap-high flex items-center justify-center font-bold relative group">1.00</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
 
 </body></html>

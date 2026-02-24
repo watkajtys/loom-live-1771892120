@@ -1,24 +1,47 @@
 <!DOCTYPE html>
-<html class="dark" lang="en"><head>
+<html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>LofiLoom Warm Solar Theme Variant 1</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<title>Institutional Slate Allocation Engine</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
         tailwind.config = {
-            darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#FFB74D","primary-dark": "#F57C00","background-dark": "#1F150A","solar-deep": "#2D1B0E",},
-                    fontFamily: {
-                        "display": ["Nunito", "sans-serif"]
+                        slate: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        },
+                        brand: {
+                            navy: "#1e3a8a",
+                            forest: "#14532d",
+                            charcoal: "#374151",
+                            burgundy: "#7f1d1d",
+                            gold: "#b45309",
+                        }
                     },
-                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1rem", "2xl": "1.5rem", "full": "9999px"},
+                    fontFamily: {
+                        serif: ["Playfair Display", "serif"],
+                        sans: ["Inter", "sans-serif"],
+                        mono: ["Roboto Mono", "monospace"],
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'crisp': '0 0 0 1px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.05)',
+                    }
                 },
             },
         }
@@ -29,181 +52,234 @@
             height: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: transparent;
+            background: #f1f5f9;
         }
         ::-webkit-scrollbar-thumb {
-            background: rgba(255, 183, 77, 0.2);
+            background: #cbd5e1;
             border-radius: 3px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 183, 77, 0.4);
+            background: #94a3b8;
         }
         .glass-panel {
-            background: rgba(45, 27, 14, 0.4);backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 215, 0, 0.1);box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
         }
-        .glass-panel-deep {
-            background: rgba(45, 27, 14, 0.75);backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
-            border-top: 1px solid rgba(255, 215, 0, 0.15);}
-        input[type=range] {
-            -webkit-appearance: none; 
-            background: transparent; 
+        .floating-bubble {
+            animation: float 6s ease-in-out infinite;
         }
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            height: 14px;
-            width: 14px;
-            border-radius: 50%;
-            background: #FFB74D;
-            cursor: pointer;
-            margin-top: -5px; 
-            box-shadow: 0 0 10px rgba(255, 183, 77, 0.8);
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
-        input[type=range]::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 4px;
-            cursor: pointer;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-        }
-        input[type=range]:focus {
-            outline: none; 
-        }
-        @keyframes pulse-warm {
-            0%, 100% { box-shadow: 0 0 15px rgba(255, 183, 77, 0.2); }
-            50% { box-shadow: 0 0 25px rgba(255, 160, 0, 0.5); }
-        }
-        .glow-ring {
-            animation: pulse-warm 4s infinite ease-in-out;
-        }
-        .text-glow {
-             text-shadow: 0 0 10px rgba(255, 183, 77, 0.5);
-        }
+        .delay-1 { animation-delay: 0s; }
+        .delay-2 { animation-delay: 1.5s; }
+        .delay-3 { animation-delay: 3s; }
+        .delay-4 { animation-delay: 4.5s; }
     </style>
 </head>
-<body class="font-display bg-background-dark text-orange-50 h-screen w-screen overflow-hidden relative">
-<div class="fixed inset-0 z-0">
-<div class="absolute inset-0 bg-solar-deep/30 backdrop-blur-sm z-10 pointer-events-none mix-blend-multiply"></div>
-<div class="absolute inset-0 bg-gradient-to-tr from-orange-900/40 via-transparent to-amber-500/20 z-10 pointer-events-none"></div>
-<img alt="Sunny afternoon interior with warm lighting" class="w-full h-full object-cover object-center opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5PP_caerHclccMgPpCG9L0OJ6FJeq-dgqgiTJa5HRcA0uNfoui-KmhqCveye6rIkbgnn8Qc2HfEQ4kfa2K7sPI2d29uAF1zld8I_-vKueuV1YSZM_WyPwkgulOUQ6z18va11nZgIj0IdHrGGMgMbL6fZB8pqK4MfL_C6eX2pGpmYd1jOWxHuFDVSyC6LeW3h_HcNZ-2OyUuBql_BK4hBzBKdnesjS4cczB4nDxxhm23B9Sjo4rOGuUox7-sNpOiDilrJWUOvXKlc"/>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased h-screen overflow-hidden flex selection:bg-brand-navy selection:text-white">
+<aside class="w-16 h-full bg-white border-r border-slate-200 flex flex-col items-center shrink-0 z-50 py-6 shadow-sm">
+<div class="mb-8 w-10 h-10 flex items-center justify-center rounded-sm bg-brand-navy shadow-md">
+<span class="material-symbols-outlined text-white text-xl">account_balance</span>
 </div>
-<nav class="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-8 bg-gradient-to-b from-black/50 to-transparent">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary text-3xl drop-shadow-[0_0_8px_rgba(255,183,77,0.8)]">wb_sunny</span>
-<span class="text-amber-50 font-bold text-lg tracking-wide uppercase drop-shadow-md">LofiLoom</span>
-</div>
-<div class="flex items-center gap-6">
-<div class="hidden md:flex items-center gap-2 text-amber-100/80 text-xs font-medium bg-amber-950/30 px-4 py-2 rounded-full border border-amber-500/20 backdrop-blur-md">
-<span class="material-symbols-outlined text-primary text-base">timer</span>
-<span>Session: 45m</span>
-</div>
-<div class="flex items-center gap-3 cursor-pointer group">
-<div class="size-8 rounded-full border border-amber-200/30 overflow-hidden shadow-[0_0_10px_rgba(255,160,0,0.3)]">
-<img alt="User profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQExQBHfWJqTQgtxDg2jHHFqdQhpS992LP-o2S3u9Z-3gS-m05hQvpb28jY8FnEf3PeALZ7XOux9z27smmCzkIPSj72mt9EcSUO-g7_b3aQZJzii4r5mEfs5Tzk_D1tX8s0LguImvMASmKxY9_1UWEwNvSj9bSh4IzObX06QYh9XzyIQaMol6jiu0QypYdWk-vMsu0V4OhozVkD3qIOWgtF2BUoo9k_LUCpN16uZpqjZkNqbKj1n1nZolEm9nGzcxZejHnxWz2sB4"/>
-</div>
-</div>
-</div>
+<nav class="flex-1 w-full flex flex-col items-center gap-6">
+<a class="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-100 text-brand-navy relative group border border-slate-200" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="absolute left-14 bg-slate-800 text-white text-xs px-3 py-1.5 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none font-medium">Dashboard</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-lg text-slate-400 hover:text-brand-navy hover:bg-slate-50 transition-colors relative group" href="#">
+<span class="material-symbols-outlined text-xl">tune</span>
+<span class="absolute left-14 bg-slate-800 text-white text-xs px-3 py-1.5 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none font-medium">Adjuster</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-lg text-slate-400 hover:text-brand-navy hover:bg-slate-50 transition-colors relative group" href="#">
+<span class="material-symbols-outlined text-xl">pie_chart</span>
+<span class="absolute left-14 bg-slate-800 text-white text-xs px-3 py-1.5 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none font-medium">Analysis</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-lg text-slate-400 hover:text-brand-navy hover:bg-slate-50 transition-colors relative group" href="#">
+<span class="material-symbols-outlined text-xl">history_edu</span>
+<span class="absolute left-14 bg-slate-800 text-white text-xs px-3 py-1.5 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none font-medium">History</span>
+</a>
 </nav>
-<div class="relative z-20 h-full w-full flex flex-col justify-between pt-16 pb-32 px-8">
-<div class="flex-1 flex w-full">
-<div class="hidden lg:block lg:w-2/3"></div>
-<div class="w-full lg:w-1/3 flex flex-col items-center justify-center lg:items-end lg:justify-start lg:pt-12">
-<div class="glass-panel rounded-2xl p-8 w-full max-w-md flex flex-col items-center relative overflow-hidden transition-all hover:border-amber-400/30">
-<div class="relative size-64 flex items-center justify-center mb-8">
-<div class="absolute inset-0 rounded-full border border-amber-500/10"></div>
-<svg class="absolute inset-0 size-full -rotate-90 transform glow-ring rounded-full" viewBox="0 0 256 256">
-<circle cx="128" cy="128" fill="none" r="116" stroke="#422006" stroke-width="2"></circle>
-<circle class="drop-shadow-[0_0_12px_rgba(255,160,0,0.6)]" cx="128" cy="128" fill="none" r="116" stroke="#FFB74D" stroke-dasharray="728" stroke-dashoffset="182" stroke-linecap="round" stroke-width="3"></circle>
+<div class="mt-auto flex flex-col gap-4 items-center">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg text-slate-400 hover:text-brand-navy hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-xl">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-slate-200 border border-slate-300 overflow-hidden">
+<img alt="User" class="w-full h-full object-cover opacity-80 mix-blend-multiply" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXvLYgu6P1YhB_c1gANgedYqW3sdRU4fRHN-GU0e1zxbcAZJi4Uplkz8hohI7BZf4Ou8dKHYdx8u1Z2B53hmdxBv7tEFVO6mf0icHKkSIizz8laZ6JTe8QnePPnGzs12rytdOqYNfDoBZSgtsINkoVM3XyaH8jjfMQvxxBrPMt5AC9VSjQhuOTBZj7PXdNLTjk5LmJq2LZecGgtFus-iV82q-ozFWS7vl-zkzCGgjbs9MST6unyL6x3OTNBN4qaiiNrbc4VrJUQg8l"/>
+</div>
+</div>
+</aside>
+<main class="flex-1 h-full relative overflow-hidden flex flex-col bg-slate-50">
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]" style="background-image: radial-gradient(#0f172a 1px, transparent 1px); background-size: 32px 32px;"></div>
+<header class="absolute top-0 left-0 w-full z-40 px-10 py-8 flex justify-between items-start pointer-events-none">
+<div class="pointer-events-auto">
+<h1 class="text-4xl font-serif font-bold text-slate-900 tracking-tight leading-tight">Institutional Slate<br/><span class="text-slate-500 font-normal italic text-2xl">Allocation Engine</span></h1>
+</div>
+<div class="flex gap-4 pointer-events-auto items-center">
+<div class="bg-white border border-slate-200 px-5 py-2.5 rounded-sm shadow-sm flex items-center gap-4">
+<div class="flex flex-col items-end">
+<span class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Total AUM</span>
+<span class="text-base font-serif font-bold text-slate-800">$1,245,890</span>
+</div>
+<div class="h-8 w-px bg-slate-200"></div>
+<span class="text-xs text-emerald-700 bg-emerald-50 px-2 py-1 rounded border border-emerald-100 font-medium">+1.2%</span>
+</div>
+<button class="bg-brand-navy hover:bg-blue-900 text-white px-8 py-3 rounded-sm font-medium text-sm shadow-md hover:shadow-lg transition-all active:transform active:translate-y-px flex items-center gap-2 font-serif tracking-wide">
+<span class="material-symbols-outlined text-sm">check_circle</span> COMMIT
+                </button>
+</div>
+</header>
+<div class="flex-1 flex flex-col items-center justify-center relative w-full h-full max-w-7xl mx-auto px-12 pt-20">
+<div class="w-full h-1/3 relative mb-10">
+<div class="absolute inset-0 flex items-end justify-center pb-8">
+<div class="floating-bubble delay-1 absolute left-[15%] bottom-[20%] bg-white rounded-lg p-5 border border-slate-200 w-52 shadow-soft transform rotate-[-1deg] hover:scale-105 transition-all cursor-pointer z-10 hover:z-20 hover:shadow-md">
+<div class="flex justify-between items-center mb-2">
+<div class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Proj. Yield</div>
+<span class="material-symbols-outlined text-emerald-600 text-lg">trending_up</span>
+</div>
+<div class="text-3xl font-serif font-bold text-slate-800 mb-2">8.45%</div>
+<div class="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden border border-slate-100">
+<div class="h-full bg-emerald-600 w-[75%]"></div>
+</div>
+<div class="mt-2 text-[10px] text-emerald-700 font-medium">+0.3% vs Target</div>
+</div>
+<div class="floating-bubble delay-2 absolute left-[32%] bottom-[45%] bg-white rounded-lg p-5 border border-slate-200 w-44 shadow-soft transform rotate-[2deg] hover:scale-105 transition-all cursor-pointer z-10 hover:z-20 hover:shadow-md">
+<div class="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-1">Volatility</div>
+<div class="text-2xl font-serif font-bold text-slate-800 mb-2">14.2%</div>
+<svg class="w-full h-8 text-brand-navy opacity-60" viewBox="0 0 100 40">
+<path d="M0 20 Q15 5 25 20 T50 20 T75 20 T100 20" fill="none" stroke="currentColor" stroke-width="1.5"></path>
 </svg>
-<div class="flex flex-col items-center z-10">
-<span class="text-7xl font-light text-amber-50 tracking-tighter tabular-nums text-glow" style="font-feature-settings: 'tnum' on, 'lnum' on;">25:00</span>
-<span class="text-primary text-xs uppercase tracking-[0.2em] mt-2 font-bold text-amber-200/80">Focus Mode</span>
 </div>
+<div class="floating-bubble delay-3 absolute right-[28%] bottom-[35%] bg-white rounded-lg p-5 border border-slate-200 w-48 shadow-soft transform rotate-[-1deg] hover:scale-105 transition-all cursor-pointer z-10 hover:z-20 hover:shadow-md">
+<div class="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-1">Sharpe Ratio</div>
+<div class="text-4xl font-serif font-black text-brand-navy mb-1">1.82</div>
+<div class="text-[10px] text-slate-400 italic font-serif">Risk-adjusted returns</div>
 </div>
-<div class="flex items-center gap-6 w-full justify-center">
-<button class="text-amber-200/60 hover:text-amber-50 transition-colors p-2 rounded-full hover:bg-amber-500/10">
-<span class="material-symbols-outlined text-2xl">replay</span>
-</button>
-<button class="h-14 w-14 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center shadow-[0_0_25px_rgba(255,183,77,0.4)] hover:scale-105 active:scale-95 transition-transform hover:bg-white">
-<span class="material-symbols-outlined text-3xl filled" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
-</button>
-<button class="text-amber-200/60 hover:text-amber-50 transition-colors p-2 rounded-full hover:bg-amber-500/10">
-<span class="material-symbols-outlined text-2xl">stop</span>
-</button>
-</div>
-<div class="flex bg-black/20 rounded-lg p-1 mt-8 w-full">
-<button class="flex-1 py-2 text-xs font-bold text-amber-950 bg-amber-100/90 rounded shadow-sm">Focus</button>
-<button class="flex-1 py-2 text-xs font-semibold text-amber-200/60 hover:text-amber-100 transition-colors">Short</button>
-<button class="flex-1 py-2 text-xs font-semibold text-amber-200/60 hover:text-amber-100 transition-colors">Long</button>
+<div class="floating-bubble delay-4 absolute right-[10%] bottom-[15%] bg-white rounded-lg p-5 border border-slate-200 w-44 shadow-soft transform rotate-[3deg] hover:scale-105 transition-all cursor-pointer z-10 hover:z-20 hover:shadow-md">
+<div class="text-[10px] text-slate-500 uppercase tracking-widest font-bold mb-1">Max Drawdown</div>
+<div class="text-2xl font-serif font-bold text-brand-burgundy mb-2">-12.4%</div>
+<div class="flex gap-0.5 items-end h-8 mt-1 border-b border-slate-100 pb-1">
+<div class="w-1.5 bg-brand-burgundy opacity-30 h-[40%]"></div>
+<div class="w-1.5 bg-brand-burgundy opacity-50 h-[60%]"></div>
+<div class="w-1.5 bg-brand-burgundy h-[100%]"></div>
+<div class="w-1.5 bg-brand-burgundy opacity-50 h-[70%]"></div>
+<div class="w-1.5 bg-brand-burgundy opacity-30 h-[30%]"></div>
 </div>
 </div>
 </div>
 </div>
+<div class="w-full z-30 mb-12">
+<div class="relative w-full px-4">
+<div class="absolute top-4 left-4 right-4 bottom-[-10px] bg-slate-300 blur-xl opacity-40 rounded-[2rem]"></div>
+<div class="h-36 w-full rounded-[2px] overflow-hidden flex shadow-2xl relative select-none ring-4 ring-white border border-slate-200">
+<div class="h-full bg-brand-navy relative group transition-all duration-300 ease-out flex flex-col items-center justify-center hover:bg-[#152c6e] cursor-grab active:cursor-grabbing" style="width: 45%;">
+<div class="text-white font-serif font-bold text-6xl tracking-tight">45<span class="text-2xl align-top opacity-60 font-sans">%</span></div>
+<div class="text-blue-100/70 font-sans font-medium text-xs uppercase tracking-widest mt-2 border-t border-blue-400/30 pt-1 px-2">US Equities</div>
 </div>
-<div class="fixed bottom-0 left-0 right-0 z-40 glass-panel-deep px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-8 h-auto md:h-28 shadow-2xl">
-<div class="hidden md:flex items-center gap-4 w-64 shrink-0">
-<div class="relative size-14 rounded-lg overflow-hidden bg-amber-900/20 shadow-inner group cursor-pointer border border-amber-500/20">
-<img alt="Album art" class="object-cover w-full h-full opacity-90 group-hover:opacity-100 transition-opacity sepia-[.3]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9gvKgX5ZCwKa8RJBtFhlK4uG6GSCPyTKZy9LWI01zOZpSAz-ShnRB34fDaXCy7NPOz9ZTFR59o-Xb_OPmXcCgtFFWJnzBEUhHB9gH9pMLdwIW0vrS6ZWiF8LvYqUuNspbWEA1as9TSNevPgf7ksWxpmhISsBiox0EkYzlbPAsbf0BTep91I8quRuuTfeGZorrCdwzBvBOR5mqQMByXaj_Zjh_SXPKR6azHG5dckqYPE4ZmBgoS4wJE5JmTs_6fSYqS8s05eBJ3FA"/>
-<div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-white text-xl">open_in_full</span>
-</div>
-</div>
-<div class="flex flex-col">
-<h3 class="text-amber-50 text-sm font-bold leading-tight">Golden Hour Mix</h3>
-<p class="text-xs text-primary/80 mt-1 font-medium">Warm Vibes</p>
-</div>
-</div>
-<div class="flex-1 w-full flex items-center justify-center gap-4 md:gap-8 overflow-x-auto pb-2 md:pb-0 px-4 scrollbar-hide">
-<div class="flex flex-col items-center gap-2 min-w-[80px] group">
-<div class="flex items-center gap-2 mb-1 opacity-60 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-lg text-amber-300">water_drop</span>
-<span class="text-[10px] uppercase tracking-wider font-bold text-amber-100">Rain</span>
-</div>
-<input class="w-32 h-1 bg-amber-900/30 rounded-lg appearance-none cursor-pointer accent-amber-400 hover:bg-amber-900/50 transition-colors" max="100" min="0" type="range" value="75"/>
-</div>
-<div class="flex flex-col items-center gap-2 min-w-[80px] group">
-<div class="flex items-center gap-2 mb-1 opacity-60 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-lg text-orange-300">storefront</span>
-<span class="text-[10px] uppercase tracking-wider font-bold text-orange-100">Cafe</span>
-</div>
-<input class="w-32 h-1 bg-amber-900/30 rounded-lg appearance-none cursor-pointer accent-orange-400 hover:bg-amber-900/50 transition-colors" max="100" min="0" type="range" value="30"/>
-</div>
-<div class="flex flex-col items-center gap-2 min-w-[80px] group">
-<div class="flex items-center gap-2 mb-1 opacity-60 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-lg text-red-300">local_fire_department</span>
-<span class="text-[10px] uppercase tracking-wider font-bold text-red-100">Fire</span>
-</div>
-<input class="w-32 h-1 bg-amber-900/30 rounded-lg appearance-none cursor-pointer accent-red-400 hover:bg-amber-900/50 transition-colors" max="100" min="0" type="range" value="45"/>
-</div>
-<div class="flex flex-col items-center gap-2 min-w-[80px] group">
-<div class="flex items-center gap-2 mb-1 opacity-60 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-lg text-yellow-200">album</span>
-<span class="text-[10px] uppercase tracking-wider font-bold text-yellow-100">Vinyl</span>
-</div>
-<input class="w-32 h-1 bg-amber-900/30 rounded-lg appearance-none cursor-pointer accent-yellow-300 hover:bg-amber-900/50 transition-colors" max="100" min="0" type="range" value="45"/>
-</div>
-<div class="flex flex-col items-center gap-2 min-w-[80px] group">
-<div class="flex items-center gap-2 mb-1 opacity-60 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-lg text-lime-300">forest</span>
-<span class="text-[10px] uppercase tracking-wider font-bold text-lime-100">Nature</span>
-</div>
-<input class="w-32 h-1 bg-amber-900/30 rounded-lg appearance-none cursor-pointer accent-lime-400 hover:bg-amber-900/50 transition-colors" max="100" min="0" type="range" value="10"/>
+<div class="w-1 h-full bg-white cursor-col-resize z-20 flex flex-col justify-center items-center group/handle relative">
+<div class="w-6 h-10 bg-white border border-slate-200 shadow-md rounded-full flex items-center justify-center group-hover/handle:scale-110 transition-transform absolute z-30">
+<span class="material-symbols-outlined text-slate-400 text-[14px]">drag_handle</span>
 </div>
 </div>
-<div class="flex items-center gap-4 w-64 justify-end shrink-0 border-l border-amber-500/10 pl-6 h-12">
-<button class="text-amber-200/50 hover:text-amber-100 transition-colors">
-<span class="material-symbols-outlined">tune</span>
-</button>
-<div class="flex items-center gap-2 group">
-<span class="material-symbols-outlined text-amber-200/50 group-hover:text-amber-100 text-xl">volume_up</span>
-<input class="w-20 h-1 bg-amber-900/30 rounded-lg appearance-none cursor-pointer accent-amber-100" max="100" min="0" type="range" value="80"/>
+<div class="h-full bg-brand-charcoal relative group transition-all duration-300 ease-out flex flex-col items-center justify-center hover:bg-[#28303d] cursor-grab active:cursor-grabbing" style="width: 25%;">
+<div class="text-white font-serif font-bold text-5xl tracking-tight">25<span class="text-2xl align-top opacity-60 font-sans">%</span></div>
+<div class="text-slate-300/70 font-sans font-medium text-xs uppercase tracking-widest mt-2 border-t border-slate-500/30 pt-1 px-2">Emerging Mkts</div>
 </div>
-<button class="text-amber-200/50 hover:text-amber-100 transition-colors ml-2">
-<span class="material-symbols-outlined">fullscreen</span>
-</button>
+<div class="w-1 h-full bg-white cursor-col-resize z-20 flex flex-col justify-center items-center group/handle relative">
+<div class="w-6 h-10 bg-white border border-slate-200 shadow-md rounded-full flex items-center justify-center group-hover/handle:scale-110 transition-transform absolute z-30">
+<span class="material-symbols-outlined text-slate-400 text-[14px]">drag_handle</span>
 </div>
 </div>
+<div class="h-full bg-brand-forest relative group transition-all duration-300 ease-out flex flex-col items-center justify-center hover:bg-[#0f4023] cursor-grab active:cursor-grabbing" style="width: 20%;">
+<div class="text-white font-serif font-bold text-5xl tracking-tight">20<span class="text-2xl align-top opacity-60 font-sans">%</span></div>
+<div class="text-green-100/70 font-sans font-medium text-xs uppercase tracking-widest mt-2 border-t border-green-400/30 pt-1 px-2">Treasuries</div>
+</div>
+<div class="w-1 h-full bg-white cursor-col-resize z-20 flex flex-col justify-center items-center group/handle relative">
+<div class="w-6 h-10 bg-white border border-slate-200 shadow-md rounded-full flex items-center justify-center group-hover/handle:scale-110 transition-transform absolute z-30">
+<span class="material-symbols-outlined text-slate-400 text-[14px]">drag_handle</span>
+</div>
+</div>
+<div class="h-full bg-brand-burgundy relative group transition-all duration-300 ease-out flex flex-col items-center justify-center hover:bg-[#681616] cursor-grab active:cursor-grabbing" style="width: 10%;">
+<div class="text-white font-serif font-bold text-4xl tracking-tight">10<span class="text-xl align-top opacity-60 font-sans">%</span></div>
+<div class="text-red-100/70 font-sans font-medium text-xs uppercase tracking-widest mt-2 border-t border-red-400/30 pt-1 px-2">Real Estate</div>
+</div>
+</div>
+<div class="flex justify-between mt-4 px-1">
+<div class="flex items-center gap-2 text-slate-500 text-xs font-mono font-medium">
+<span class="w-2 h-2 rounded-full bg-slate-400 ring-2 ring-slate-100"></span> CURRENT ALLOCATION
+                        </div>
+<div class="flex items-center gap-2 text-slate-500 text-xs font-mono font-medium">
+                            TARGET: BALANCED GROWTH <span class="material-symbols-outlined text-sm">flag</span>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full flex-1 min-h-0 relative px-4">
+<div class="bg-white w-full h-full rounded-t-lg border border-slate-200 border-b-0 p-8 flex flex-col shadow-[0_-4px_20px_-5px_rgba(0,0,0,0.03)]">
+<div class="flex justify-between items-end mb-6">
+<h3 class="text-slate-800 font-serif font-bold text-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">grid_on</span> Correlation Matrix
+                        </h3>
+<div class="flex gap-4 bg-slate-50 px-3 py-1.5 rounded-sm border border-slate-100">
+<div class="flex items-center gap-1.5">
+<span class="block w-2.5 h-2.5 bg-emerald-100 border border-emerald-200 rounded-sm"></span>
+<span class="text-[10px] text-slate-500 uppercase tracking-wide font-bold">Negative</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="block w-2.5 h-2.5 bg-slate-50 border border-slate-200 rounded-sm"></span>
+<span class="text-[10px] text-slate-500 uppercase tracking-wide font-bold">Neutral</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="block w-2.5 h-2.5 bg-brand-navy/10 border border-brand-navy/20 rounded-sm"></span>
+<span class="text-[10px] text-slate-500 uppercase tracking-wide font-bold">Positive</span>
+</div>
+</div>
+</div>
+<div class="flex-1 grid grid-cols-5 gap-px bg-slate-200 border border-slate-200 rounded-sm overflow-hidden">
+<div class="flex flex-col gap-px bg-slate-50">
+<div class="h-10 bg-white"></div> 
+<div class="flex-1 flex items-center justify-end px-4 text-brand-navy font-bold text-xs uppercase tracking-wide bg-white">US Equities</div>
+<div class="flex-1 flex items-center justify-end px-4 text-brand-charcoal font-bold text-xs uppercase tracking-wide bg-white">Emerging Mkt</div>
+<div class="flex-1 flex items-center justify-end px-4 text-brand-forest font-bold text-xs uppercase tracking-wide bg-white">Treasuries</div>
+<div class="flex-1 flex items-center justify-end px-4 text-brand-burgundy font-bold text-xs uppercase tracking-wide bg-white">Real Estate</div>
+</div>
+<div class="flex flex-col gap-px bg-white">
+<div class="h-10 flex items-center justify-center text-brand-navy font-bold text-xs uppercase tracking-wider bg-slate-50">US Equities</div>
+<div class="flex-1 bg-brand-navy/20 flex items-center justify-center text-slate-900 font-mono text-sm font-medium">1.00</div>
+<div class="flex-1 bg-brand-navy/10 flex items-center justify-center text-slate-600 font-mono text-sm">0.72</div>
+<div class="flex-1 bg-emerald-50 flex items-center justify-center text-emerald-700 font-mono text-sm">-0.32</div>
+<div class="flex-1 bg-brand-navy/5 flex items-center justify-center text-slate-600 font-mono text-sm">0.45</div>
+</div>
+<div class="flex flex-col gap-px bg-white">
+<div class="h-10 flex items-center justify-center text-brand-charcoal font-bold text-xs uppercase tracking-wider bg-slate-50">Emerging</div>
+<div class="flex-1 bg-brand-navy/10 flex items-center justify-center text-slate-600 font-mono text-sm">0.72</div>
+<div class="flex-1 bg-brand-navy/20 flex items-center justify-center text-slate-900 font-mono text-sm font-medium">1.00</div>
+<div class="flex-1 bg-emerald-50 flex items-center justify-center text-emerald-700 font-mono text-sm">-0.15</div>
+<div class="flex-1 bg-brand-navy/5 flex items-center justify-center text-slate-600 font-mono text-sm">0.38</div>
+</div>
+<div class="flex flex-col gap-px bg-white">
+<div class="h-10 flex items-center justify-center text-brand-forest font-bold text-xs uppercase tracking-wider bg-slate-50">Treasuries</div>
+<div class="flex-1 bg-emerald-50 flex items-center justify-center text-emerald-700 font-mono text-sm">-0.32</div>
+<div class="flex-1 bg-emerald-50 flex items-center justify-center text-emerald-700 font-mono text-sm">-0.15</div>
+<div class="flex-1 bg-brand-navy/20 flex items-center justify-center text-slate-900 font-mono text-sm font-medium">1.00</div>
+<div class="flex-1 bg-brand-navy/5 flex items-center justify-center text-slate-600 font-mono text-sm">0.12</div>
+</div>
+<div class="flex flex-col gap-px bg-white">
+<div class="h-10 flex items-center justify-center text-brand-burgundy font-bold text-xs uppercase tracking-wider bg-slate-50">Real Estate</div>
+<div class="flex-1 bg-brand-navy/5 flex items-center justify-center text-slate-600 font-mono text-sm">0.45</div>
+<div class="flex-1 bg-brand-navy/5 flex items-center justify-center text-slate-600 font-mono text-sm">0.38</div>
+<div class="flex-1 bg-brand-navy/5 flex items-center justify-center text-slate-600 font-mono text-sm">0.12</div>
+<div class="flex-1 bg-brand-navy/20 flex items-center justify-center text-slate-900 font-mono text-sm font-medium">1.00</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
 
 </body></html>
