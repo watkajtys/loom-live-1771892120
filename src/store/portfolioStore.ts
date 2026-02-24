@@ -38,24 +38,24 @@ export const usePortfolioStore = create<PortfolioState>((set) => ({
       id: 'emerging-mkts', 
       name: 'Emerging Mkts', 
       allocation: 25, 
-      color: 'bg-[#374151]', 
-      colorHex: '#374151',
+      color: 'bg-[#475569]', 
+      colorHex: '#475569',
       description: 'EMERGING MKTS'
     },
     { 
       id: 'treasuries', 
       name: 'Treasuries', 
       allocation: 20, 
-      color: 'bg-[#14532d]', 
-      colorHex: '#14532d',
+      color: 'bg-[#166534]', 
+      colorHex: '#166534',
       description: 'TREASURIES'
     },
     { 
       id: 'real-estate', 
       name: 'Real Estate', 
       allocation: 10, 
-      color: 'bg-[#7f1d1d]', 
-      colorHex: '#7f1d1d',
+      color: 'bg-[#991b1b]', 
+      colorHex: '#991b1b',
       description: 'REAL ESTATE'
     },
   ],

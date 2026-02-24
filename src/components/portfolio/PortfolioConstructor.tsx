@@ -109,11 +109,11 @@ const PortfolioConstructor: React.FC = () => {
             <main className="flex-1 h-full relative overflow-hidden flex flex-col bg-slate-50">
                 <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#0f172a 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
                 
-                <header className="absolute top-0 left-0 w-full z-40 px-10 py-8 flex justify-between items-start pointer-events-none">
-                    <div className="pointer-events-auto">
+                <header className="relative w-full z-40 px-10 py-8 flex justify-between items-start shrink-0">
+                    <div>
                         <h1 className="text-4xl font-serif font-bold text-slate-900 tracking-tight leading-tight">Institutional Slate<br/><span className="text-slate-500 font-normal italic text-2xl">Allocation Engine</span></h1>
                     </div>
-                    <div className="flex gap-4 pointer-events-auto items-center">
+                    <div className="flex gap-4 items-center">
                         <div className="bg-white border border-slate-200 px-5 py-2.5 rounded-sm shadow-sm flex items-center gap-4">
                             <div className="flex flex-col items-end">
                                 <span className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Total AUM</span>
@@ -128,7 +128,7 @@ const PortfolioConstructor: React.FC = () => {
                     </div>
                 </header>
 
-                <div className="flex-1 flex flex-col items-center justify-center relative w-full h-full max-w-7xl mx-auto px-12 pt-20">
+                <div className="flex-1 flex flex-col items-center justify-center relative w-full px-12 pb-12">
                     <MetricsDisplay />
                     <div className="w-full z-30 mb-12">
                          <div className="relative w-full px-4">

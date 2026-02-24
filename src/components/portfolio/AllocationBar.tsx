@@ -69,44 +69,49 @@ const AllocationBar: React.FC = () => {
     };
 
     return (
-        <div className="w-full px-4 mb-12 select-none">
-            <div className="relative w-full h-36 rounded-[2px] overflow-hidden flex shadow-2xl ring-4 ring-white border border-slate-200" ref={containerRef}>
+        <div className="w-full max-w-6xl mx-auto px-4 mb-12 select-none">
+            <div className="relative w-full h-32 rounded-sm overflow-hidden flex shadow-lg border border-slate-300 ring-1 ring-slate-100" ref={containerRef}>
                 {assets.map((asset, index) => (
                     <React.Fragment key={asset.id}>
                         <div 
-                            className={`h-full relative group transition-colors duration-300 ease-out flex flex-col items-center justify-center hover:brightness-110 cursor-grab active:cursor-grabbing`}
+                            className={`h-full relative group transition-colors duration-300 ease-out flex flex-col items-center justify-center hover:brightness-105 cursor-grab active:cursor-grabbing`}
                             style={{ 
                                 width: `${asset.allocation}%`,
                                 backgroundColor: asset.colorHex
                             }}
                         >
-                            <div className="text-white font-serif font-bold text-4xl lg:text-5xl tracking-tight">
-                                {Math.round(asset.allocation)}<span className="text-xl lg:text-2xl align-top opacity-60 font-sans">%</span>
-                            </div>
-                            <div className="text-white/70 font-sans font-medium text-[10px] lg:text-xs uppercase tracking-widest mt-2 border-t border-white/20 pt-1 px-2 text-center whitespace-nowrap overflow-hidden text-ellipsis max-w-full">
-                                {asset.name}
-                            </div>
+                            {asset.allocation > 8 && (
+                                <>
+                                    <div className="text-white font-serif font-bold text-3xl lg:text-4xl tracking-tight">
+                                        {Math.round(asset.allocation)}<span className="text-lg lg:text-xl align-top opacity-70 font-sans">%</span>
+                                    </div>
+                                    <div className="text-white/80 font-sans font-medium text-[10px] uppercase tracking-widest mt-1 border-t border-white/20 pt-1 px-2 text-center whitespace-nowrap overflow-hidden text-ellipsis max-w-full">
+                                        {asset.name}
+                                    </div>
+                                </>
+                            )}
                         </div>
                         
                         {index < assets.length - 1 && (
                             <div 
-                                className="w-1 h-full bg-white cursor-col-resize z-20 flex flex-col justify-center items-center group/handle relative hover:w-1.5 transition-all"
+                                className="w-px h-full relative z-20 flex items-center justify-center cursor-col-resize group/handle"
                                 onMouseDown={(e) => handleMouseDown(index, e)}
                             >
-                                <div className="w-6 h-10 bg-white border border-slate-200 shadow-md rounded-full flex items-center justify-center group-hover/handle:scale-110 transition-transform absolute z-30 pointer-events-none">
-                                    <span className="material-symbols-outlined text-slate-400 text-[14px]">drag_handle</span>
-                                </div>
+                                {/* Expanded hit area */}
+                                <div className="absolute inset-y-0 -left-3 -right-3 z-30 bg-transparent"></div>
+                                {/* Visual divider line */}
+                                <div className="w-px h-full bg-white opacity-40 group-hover/handle:w-1 group-hover/handle:opacity-100 transition-all duration-200"></div>
                             </div>
                         )}
                     </React.Fragment>
                 ))}
             </div>
-             <div className="flex justify-between mt-4 px-1">
-                <div className="flex items-center gap-2 text-slate-500 text-xs font-mono font-medium">
-                    <span className="w-2 h-2 rounded-full bg-slate-400 ring-2 ring-slate-100"></span> CURRENT ALLOCATION
+             <div className="flex justify-between mt-3 px-1">
+                <div className="flex items-center gap-2 text-slate-500 text-[10px] uppercase tracking-wider font-bold">
+                    <span className="w-2 h-2 rounded-full bg-slate-400"></span> Current Allocation
                 </div>
-                <div className="flex items-center gap-2 text-slate-500 text-xs font-mono font-medium">
-                    TARGET: BALANCED GROWTH <span className="material-symbols-outlined text-sm">flag</span>
+                <div className="flex items-center gap-2 text-slate-500 text-[10px] uppercase tracking-wider font-bold">
+                    Target: Balanced Growth <span className="material-symbols-outlined text-sm">flag</span>
                 </div>
             </div>
         </div>
